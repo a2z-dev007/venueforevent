@@ -1,26 +1,276 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 30 33% 97%;
+    --foreground: 340 25% 13%;
+
+    --card: 30 33% 97%;
+    --card-foreground: 340 25% 13%;
+
+    --popover: 30 33% 97%;
+    --popover-foreground: 340 25% 13%;
+
+    --primary: 340 60% 30%;
+    --primary-foreground: 30 33% 97%;
+
+    --secondary: 30 30% 78%;
+    --secondary-foreground: 340 25% 13%;
+
+    --muted: 20 20% 92%;
+    --muted-foreground: 340 10% 45%;
+
+    --accent: 30 45% 60%;
+    --accent-foreground: 340 25% 13%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 30 33% 97%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 340 60% 30%;
+
+    --radius: 0.75rem;
+
+    /* Responsive Section Spacing Configuration */
+    --section-padding-x-mobile: 1.5rem;   /* 24px (px-6) */
+    --section-padding-y-mobile: 5rem;     /* 80px (py-20) */
+    
+    --section-padding-x-tablet: 3rem;     /* 48px (px-12) */
+    --section-padding-y-tablet: 6rem;     /* 96px (py-24) */
+    
+    --section-padding-x-desktop: 5rem;    /* 80px (px-20) */
+    --section-padding-y-desktop: 8rem;    /* 128px (py-32) */
+
+    /* Custom luxury tokens */
+    --wine: 345 75% 35%; /* Richer Burgundy */
+    --wine-foreground: 30 33% 97%;
+    --champagne: 38 75% 55%; /* More vibrant Gold/Amber */
+    --champagne-light: 38 80% 85%;
+    --blush: 350 70% 85%; /* Warmer, softer romantic rose */
+    --ivory: 35 40% 98%; /* Warmer ivory */
+    --dark-accent: 345 35% 12%; 
+
+    --gradient-rosegold: linear-gradient(135deg, hsl(38 75% 55%), hsl(350 70% 85%), hsl(25 80% 88%));
+    --gradient-romantic: linear-gradient(120deg, hsl(345 75% 35%), hsl(38 75% 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(345 35% 8%), hsl(345 35% 12%));
+
+    --shadow-luxury: 0 20px 60px -15px hsl(345 75% 35% / 0.25);
+    --shadow-gold: 0 10px 40px -10px hsl(38 75% 55% / 0.4);
+    --shadow-soft: 0 4px 20px hsl(345 35% 12% / 0.08);
+
+    --font-heading: 'var(--font-heading)', serif;
+    --font-body: 'var(--font-body)', sans-serif;
+    --font-accent: 'var(--font-accent)', cursive;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dynamically Configured Variations */
+    --blush-1: 20 40% 94%;
+    --wine-1: 340 15% 93%;
+    --champagne-1: 30 35% 95%;
+    --wine-2: 340 30% 88%;
+    --champagne-2: 30 45% 95%;
+    --gold-1: 45 50% 94%;
+    --champagne-3: 30 40% 96%;
+    --gold-2: 45 70% 85%;
+    --champagne-4: 30 60% 88%;
+    --champagne-5: 30 40% 97%;
+    --peach-1: 25 50% 95%;
+    --blush-2: 20 45% 93%;
+    --gold-3: 35 70% 85%;
+    --blush-3: 15 60% 88%;
+    --champagne-6: 30 50% 87%;
+    --blush-4: 20 50% 94%;
+    --champagne-7: 30 60% 85%;
+    --blush-5: 15 70% 88%;
+    --wine-3: 340 20% 95%;
+    --blush-6: 15 40% 94%;
+    --champagne-8: 30 35% 96%;
+    --wine-4: 340 40% 88%;
+    --champagne-9: 30 50% 86%;
+    --dark-1: 30 30% 10%;
+    --dark-2: 340 25% 8%;
+    --champagne-10: 30 45% 60%;
+    --wine-5: 340 60% 30%;
+    --champagne-11: 30 30% 92%;
+    --wine-6: 340 60% 70%;
+    --wine-7: 340 60% 65%;
+    --wine-8: 340 50% 60%;
+    --sage-1: 120 30% 45%;
+    --champagne-12: 30 45% 50%;
+    --gold-4: 35 90% 55%;
+    --sage-2: 120 30% 40%;
+    --gold-5: 35 60% 40%;
+    --peach-2: 25 45% 94%;
+    --champagne-13: 30 50% 96%;
+    --wine-9: 340 18% 94%;
+    --wine-10: 340 35% 88%;
+    --wine-11: 340 20% 92%;
+    --champagne-14: 30 35% 94%;
+    --peach-3: 25 45% 95%;
+    --blush-7: 15 65% 86%;
+
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-border/50;
+    background: hsl(var(--ivory) / 0.7);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-dark {
+    background: hsl(var(--dark-accent) / 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--champagne) / 0.15);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-rosegold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-romantic {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-luxury {
+    @apply relative overflow-hidden rounded-full px-8 py-4 font-medium tracking-wide transition-all duration-500 ease-out;
+    background: var(--gradient-romantic);
+    color: hsl(var(--ivory));
+    box-shadow: var(--shadow-luxury);
+  }
+  .btn-luxury:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 30px 80px -15px hsl(var(--wine) / 0.4);
+  }
+  .btn-luxury:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .btn-outline-luxury {
+    @apply rounded-full px-8 py-4 font-medium tracking-wide transition-all duration-500 ease-out;
+    border: 1.5px solid hsl(var(--champagne));
+    color: hsl(var(--champagne));
+  }
+  .btn-outline-luxury:hover {
+    background: hsl(var(--champagne) / 0.1);
+    transform: translateY(-2px);
+  }
+  .btn-outline-luxury:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .venue-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-700 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+  .venue-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  /* Inherit scale effects on inner children */
+  .venue-card img {
+    @apply transition-transform duration-1000 ease-out;
+  }
+  .venue-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .section-padding {
+    padding: var(--section-padding-y-mobile) var(--section-padding-x-mobile);
+  }
+
+  .section-px {
+    padding-left: var(--section-padding-x-mobile);
+    padding-right: var(--section-padding-x-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: var(--section-padding-y-tablet) var(--section-padding-x-tablet);
+    }
+    .section-px {
+      padding-left: var(--section-padding-x-tablet);
+      padding-right: var(--section-padding-x-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: var(--section-padding-y-desktop) var(--section-padding-x-desktop);
+    }
+    .section-px {
+      padding-left: var(--section-padding-x-desktop);
+      padding-right: var(--section-padding-x-desktop);
+    }
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  .sparkle-particle {
+    @apply absolute rounded-full;
+    background: hsl(var(--champagne));
+    animation: sparkle 3s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes petal-fall {
+    0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-petal {
+    animation: petal-fall 8s linear infinite;
+  }
 }
