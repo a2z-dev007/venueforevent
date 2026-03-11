@@ -19,6 +19,7 @@ const categories = [
 const CategoriesSection = () => {
   return (
     <section
+      id="categories-section"
       className="section-padding relative overflow-hidden"
       style={{
         background: "linear-gradient(180deg, hsl(var(--champagne-5)) 0%, hsl(var(--peach-1)) 50%, hsl(var(--blush-2)) 100%)",

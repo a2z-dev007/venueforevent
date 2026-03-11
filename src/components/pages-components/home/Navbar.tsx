@@ -6,15 +6,26 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight - 100);
+    const onScroll = () => {
+      if (!isHome) {
+        setScrolled(window.scrollY > 50);
+        return;
+      }
+      const section = document.getElementById("categories-section");
+      if (section) {
+        const sectionTop = section.offsetTop;
+        setScrolled(window.scrollY >= sectionTop - 100);
+      } else {
+        setScrolled(window.scrollY > 100);
+      }
+    };
     window.addEventListener("scroll", onScroll);
+    onScroll(); // initial check
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <motion.nav

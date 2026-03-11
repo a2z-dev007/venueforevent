@@ -12,10 +12,12 @@ import PartyPlanningIdeas from "@/components/pages-components/home/PartyPlanning
 import TestimonialsSection from "@/components/pages-components/home/TestimonialsSection";
 import FinalCTA from "@/components/pages-components/home/FinalCTA";
 import Footer from "@/components/pages-components/home/Footer";
+import CurtainLoader from "@/components/common/CurtainLoader";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <CurtainLoader />
       <Navbar />
       <HeroSection />
       <CategoriesSection />
