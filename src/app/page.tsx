@@ -3,6 +3,7 @@
 import Navbar from "@/components/pages-components/home/Navbar";
 import HeroSection from "@/components/pages-components/home/HeroSection";
 import CitiesSection from "@/components/pages-components/home/CitiesSection";
+import CategoriesSection from "@/components/pages-components/home/CategoriesSection";
 import BirthdayHallsSection from "@/components/pages-components/home/BirthdayHallsSection";
 import BanquetHallsSection from "@/components/pages-components/home/BanquetHallsSection";
 import EngagementAnniversarySection from "@/components/pages-components/home/EngagementAnniversarySection";
@@ -17,6 +18,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <CategoriesSection />
       <CitiesSection />
       <BirthdayHallsSection />
       <BanquetHallsSection />

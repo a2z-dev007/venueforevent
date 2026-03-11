@@ -13,6 +13,7 @@ import gardenWedding from "@/assets/garden-wedding.jpg";
 import beachWedding from "@/assets/beach-wedding.jpg";
 import palaceWedding from "@/assets/palace-wedding.jpg";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { VenueCard } from "../../common/VenueCard";
 
 const ideas = [
   { title: "Decor Themes", subtitle: "Royal to rustic — set the vibe", image: decorTheme },
@@ -66,29 +67,23 @@ const PartyPlanningIdeas = () => {
         </motion.div>
         <FloralDivider variant="gold" />
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {ideas.map((idea, i) => (
             <motion.div
               key={idea.title}
-              className="venue-card group cursor-pointer overflow-hidden rounded-2xl border border-champagne/15 bg-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={idea.image.src} alt={idea.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-dark-accent/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
-                  <div className="flex items-center gap-1 mb-0.5">
-                    <Sparkles className="h-3 w-3 text-champagne" />
-                    <span className="text-[10px] uppercase tracking-wider text-champagne md:text-[11px]">{idea.subtitle}</span>
-                  </div>
-                  <h3 className="font-heading text-sm font-bold text-primary-foreground md:text-lg">
-                    {idea.title}
-                  </h3>
-                </div>
-              </div>
+              <VenueCard 
+                venue={{
+                  name: idea.title,
+                  image: idea.image,
+                  type: idea.subtitle
+                }} 
+                variant="overlay" 
+              />
             </motion.div>
           ))}
         </div>

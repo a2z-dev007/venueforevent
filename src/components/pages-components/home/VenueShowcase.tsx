@@ -9,6 +9,7 @@ import beachWedding from "@/assets/beach-wedding.jpg";
 import palaceWedding from "@/assets/palace-wedding.jpg";
 import banquetHall from "@/assets/banquet-hall.jpg";
 import { Star, MapPin, ArrowRight } from "lucide-react";
+import { VenueCard } from "../../common/VenueCard";
 
 const venues = [
   { name: "The Royal Garden", location: "Jaipur", rating: 4.9, price: "₹3,50,000", image: gardenWedding, tag: "Most Popular" },
@@ -57,34 +58,26 @@ const VenueShowcase = () => {
         </motion.div>
         <FloralDivider variant="gold" />
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {venues.map((venue, i) => (
             <motion.div
               key={venue.name}
-              className="venue-card group cursor-pointer overflow-hidden rounded-2xl border border-champagne/15 bg-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={venue.image.src} alt={venue.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
-                <div className="absolute left-2.5 top-2.5 rounded-full bg-wine px-2.5 py-0.5 text-[10px] font-medium text-wine-foreground md:text-xs md:px-3 md:py-1">
-                  {venue.tag}
-                </div>
-                <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded-full bg-dark-accent/60 px-2 py-0.5 backdrop-blur-sm">
-                  <Star className="h-3 w-3 fill-champagne text-champagne" />
-                  <span className="text-[10px] font-medium text-primary-foreground md:text-xs">{venue.rating}</span>
-                </div>
-              </div>
-              <div className="p-3 md:p-4">
-                <h3 className="font-heading text-sm font-semibold text-foreground md:text-base line-clamp-1">{venue.name}</h3>
-                <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-                  <MapPin className="h-3 w-3" /> {venue.location}
-                </p>
-                <p className="mt-2 font-heading text-sm font-semibold text-wine md:text-base">{venue.price}</p>
-              </div>
+              <VenueCard 
+                venue={{
+                  name: venue.name,
+                  location: venue.location,
+                  rating: venue.rating,
+                  price: venue.price,
+                  image: venue.image,
+                  type: venue.tag
+                }} 
+                variant="standard" 
+              />
             </motion.div>
           ))}
         </div>

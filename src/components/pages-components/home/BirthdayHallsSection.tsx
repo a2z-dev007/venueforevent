@@ -5,6 +5,7 @@ import HangingGarland from "./HangingGarland";
 import FloatingPetals from "./FloatingPetals";
 import birthdayHall from "@/assets/birthday-hall.jpg";
 import { Users, MapPin, ArrowRight } from "lucide-react";
+import { VenueCard } from "../../common/VenueCard";
 
 const halls = [
   { name: "The Grand Birthday Arena", location: "Mumbai", capacity: "50–200", price: "₹25,000", image: birthdayHall, tag: "Most Booked" },
@@ -56,32 +57,25 @@ const BirthdayHallsSection = () => {
         </motion.div>
         <FloralDivider variant="gold" />
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {halls.map((hall, i) => (
             <motion.div
               key={hall.name}
-              className="venue-card group cursor-pointer overflow-hidden rounded-2xl border border-champagne/15 bg-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={hall.image.src} alt={hall.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
-                <div className="absolute left-2.5 top-2.5 rounded-full bg-wine px-2.5 py-0.5 text-[10px] font-medium text-wine-foreground md:text-xs md:px-3 md:py-1">
-                  {hall.tag}
-                </div>
-              </div>
-              <div className="p-3 md:p-4">
-                <h3 className="font-heading text-sm font-semibold text-foreground md:text-base line-clamp-1">{hall.name}</h3>
-                <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-                  <MapPin className="h-3 w-3" /> {hall.location}
-                </p>
-                <div className="mt-2 flex items-center justify-between">
-                  <p className="font-heading text-sm font-semibold text-wine md:text-base">{hall.price}</p>
-                </div>
-              </div>
+              <VenueCard 
+                venue={{
+                  name: hall.name,
+                  location: hall.location,
+                  price: hall.price,
+                  image: hall.image,
+                  type: hall.tag
+                }} 
+                variant="standard" 
+              />
             </motion.div>
           ))}
         </div>

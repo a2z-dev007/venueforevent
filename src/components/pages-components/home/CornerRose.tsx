@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { cn } from "@/lib/utils";
 
-const CornerRose = ({ position }: { position: "top-left" | "top-right" | "bottom-left" | "bottom-right" }) => {
+const CornerRose = ({ position, className }: { position: "top-left" | "top-right" | "bottom-left" | "bottom-right", className?: string }) => {
   const posClass = {
     "top-left": "top-0 left-0",
     "top-right": "top-0 right-0 scale-x-[-1]",
@@ -25,7 +26,7 @@ const CornerRose = ({ position }: { position: "top-left" | "top-right" | "bottom
   }, { scope: roseRef });
 
   return (
-    <div ref={roseRef} className={`pointer-events-none absolute ${posClass} opacity-20`}>
+    <div ref={roseRef} className={cn("pointer-events-none absolute opacity-20", posClass, className)}>
       <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
         {/* Main vine */}
         <path d="M0 80 Q30 60 50 70 Q70 80 80 60 Q90 40 110 50 Q130 60 140 40" stroke="hsl(var(--champagne))" strokeWidth="1.2" fill="none" />

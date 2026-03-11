@@ -6,38 +6,28 @@ import FloatingPetals from "./FloatingPetals";
 
 const footerSections = {
   "Venue Types": [
-    "Wedding Venues",
-    "Birthday Party Halls",
-    "Banquet Halls",
-    "Engagement Venues",
-    "Anniversary Venues",
-    "Corporate Events",
+    { label: "Wedding Venues", href: "#" },
+    { label: "Birthday Party Halls", href: "#" },
+    { label: "Banquet Halls", href: "#" },
+    { label: "Engagement Venues", href: "#" },
+    { label: "Anniversary Venues", href: "#" },
+    { label: "Corporate Events", href: "#" },
   ],
-  "Celebration Tips": [
-    "Budget Planning Guide",
-    "Guest List Management",
-    "Vendor Checklist",
-    "Wedding Timeline",
-    "Seating Arrangements",
-    "Invitation Etiquette",
+  "Company": [
+    { label: "About Us", href: "/about-us" },
+    { label: "Brand Story", href: "/brand-story" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "Career", href: "/career" },
+    { label: "Partner With Us", href: "/partner-with-us" },
+    { label: "List Your Service", href: "/list-your-service" },
   ],
-  "Theme Ideas": [
-    "Royal Rajasthani",
-    "Pastel Garden",
-    "Bollywood Glam",
-    "Rustic Bohemian",
-    "Beach Tropical",
-    "Vintage Romance",
-  ],
-  "Inspiration": [
-    "Decor Themes",
-    "Bridal Entry Options",
-    "Per-Plate Costs",
-    "DJ & Sangeet Night",
-    "Birthday Packages",
-    "Real Celebrations",
+  "Resources": [
+    { label: "Investor Relations", href: "/investor-relations" },
+    { label: "Company Details", href: "/company-details" },
+    { label: "Contact Us", href: "/contact" },
   ],
 };
+
 
 const Footer = () => {
   return (
@@ -113,16 +103,17 @@ const Footer = () => {
       </div>
 
       {/* Main footer content */}
-      <div className="section-px pb-6">
+      <div className="section-px pb-12">
         <div className="mx-auto max-w-7xl rounded-3xl border border-champagne/15 bg-card p-8 shadow-[var(--shadow-soft)] md:p-12">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
             {/* Brand column */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2">
-                <span className="font-accent text-3xl text-champagne">Venue</span>
-                <span className="font-heading text-sm font-semibold tracking-wider text-foreground">
-                  FOR EVENT
-                </span>
+                <img 
+                  src="/logo.png" 
+                  alt="VenueFOR EVENT" 
+                  className="h-10 w-auto"
+                />
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 India's most loved venue discovery platform. From dream weddings to joyful birthdays — we make every celebration special.
@@ -145,27 +136,27 @@ const Footer = () => {
                 <a href="mailto:hello@venueforevent.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-champagne transition-colors">
                   <Mail className="h-3.5 w-3.5 text-champagne" /> hello@venueforevent.com
                 </a>
-                <p className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-3.5 w-3.5 text-champagne" /> Mumbai, India
+                <p className="flex items-center gap-2 text-sm text-muted-foreground text-left">
+                  <MapPin className="h-3.5 w-3.5 text-champagne shrink-0" /> Mumbai, India
                 </p>
               </div>
             </div>
 
             {/* Link columns */}
             {Object.entries(footerSections).map(([title, links]) => (
-              <div key={title}>
+              <div key={title} className="text-left">
                 <h4 className="mb-4 flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-foreground">
                   <Sparkles className="h-3 w-3 text-champagne" />
                   {title}
                 </h4>
                 <ul className="space-y-2.5">
                   {links.map((link) => (
-                    <li key={link}>
+                    <li key={link.label}>
                       <a
-                        href="#"
+                        href={link.href}
                         className="text-sm text-muted-foreground transition-colors hover:text-wine"
                       >
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}
@@ -183,15 +174,16 @@ const Footer = () => {
             © 2026 VenueForEvent. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-wine transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-wine transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-wine transition-colors">Refund Policy</a>
+            <a href="/privacy-policy" className="hover:text-wine transition-colors">Privacy Policy</a>
+            <a href="/terms-and-conditions" className="hover:text-wine transition-colors">Terms & Conditions</a>
+            <a href="/disclaimer" className="hover:text-wine transition-colors">Disclaimer</a>
           </div>
           <p className="flex items-center gap-1 text-xs text-muted-foreground">
             Made with <Heart className="h-3 w-3 fill-wine text-wine" /> for celebrations
           </p>
         </div>
       </div>
+
     </footer>
   );
 };
