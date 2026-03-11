@@ -41,9 +41,7 @@ const Navbar = () => {
           <img 
             src="/logo.png" 
             alt="VenueFOR EVENT" 
-            className={`h-10 md:h-16 w-auto object-contain transition-all duration-300 ${
-              isHome && !scrolled ? 'brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : ''
-            }`}
+            className={`h-10 md:h-16 w-auto object-contain transition-all duration-300 `}
             
           />
         </a>

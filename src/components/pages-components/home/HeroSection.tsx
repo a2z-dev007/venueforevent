@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Search, MapPin, Users, CalendarHeart, Sparkles } from "lucide-react";
+import { CalendarHeart, MapPin, Users, Play, Pause, ChevronRight, Sparkles } from 'lucide-react';
+import HeroSearch from '@/components/HeroSearch';
 
 import GoldenParticles from "./GoldenParticles";
 import FloatingPetals from "./FloatingPetals";
@@ -208,20 +209,11 @@ const HeroSection = () => {
 
         {/* ============ SCENE 1: Search Bar ============ */}
         <div ref={textScene1Ref} className="absolute inset-0 z-20 flex items-center justify-center section-px">
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-6xl">
             <p className="font-accent mb-2 text-center text-3xl text-wine drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]">Begin your journey</p>
             <h2 className="font-heading mb-8 text-center text-4xl font-bold text-white md:text-6xl drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">Discover Beautiful Venues</h2>
-            <div className="glass-dark rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl">
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-4 md:gap-4">
-                <SearchField icon={MapPin} label="City" value="Select City" />
-                <SearchField icon={CalendarHeart} label="Event Type" value="Wedding" />
-                <SearchField icon={Users} label="Guests" value="100 – 300" />
-                <button className="btn-luxury flex items-center justify-center gap-2 rounded-xl py-4 text-base font-bold shadow-lg">
-                  <Search className="h-5 w-5" />
-                  Find My Venue
-                </button>
-              </div>
-            </div>
+            
+            <HeroSearch />
           </div>
         </div>
 
@@ -262,14 +254,5 @@ const HeroSection = () => {
   );
 };
 
-const SearchField = ({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) => (
-  <div className="flex cursor-pointer items-center gap-3 rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 px-4 py-3 transition-all hover:border-champagne/30 hover:bg-primary-foreground/10">
-    <Icon className="h-5 w-5 shrink-0 text-champagne" />
-    <div>
-      <p className="text-[10px] uppercase tracking-wider text-primary-foreground/40">{label}</p>
-      <p className="text-sm font-medium text-primary-foreground">{value}</p>
-    </div>
-  </div>
-);
 
 export default HeroSection;
