@@ -1052,7 +1052,7 @@ function FinalBrandingSection() {
                 <div className="absolute -inset-24 bg-wine/20 blur-[120px] rounded-full -z-10 group-hover:bg-wine/30 transition-all duration-1000" />
 
                 <motion.div style={{ scale }} className="text-center space-y-6">
-                  <h4 className="font-heading text-3xl sm:text-5xl md:text-7xl lg:text-[10vw] font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-luxury whitespace-nowrap">
+                  <h4 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-[6vw] font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-luxury break-words w-full">
                     VenueForEvent.com
                   </h4>
                   <p className="font-heading text-xl sm:text-3xl md:text-4xl font-bold opacity-50 uppercase tracking-[0.6em] text-white">
