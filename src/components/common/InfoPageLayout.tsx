@@ -15,6 +15,7 @@ interface InfoPageLayoutProps {
   heroSubtitle?: string;
   heroImage?: string;
   heroDescription?: string;
+  hideWave?: boolean;
 }
 
 export default function InfoPageLayout({
@@ -23,6 +24,7 @@ export default function InfoPageLayout({
   heroSubtitle,
   heroImage,
   heroDescription,
+  hideWave = false,
 }: InfoPageLayoutProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScrollY } = useScroll({
@@ -144,7 +146,7 @@ export default function InfoPageLayout({
           </motion.div>
         </motion.div>
 
-        <WaveDivider position="bottom" variant="ivory" isMultiWave />
+        {!hideWave && <WaveDivider position="bottom" variant="ivory" isMultiWave />}
       </section>
 
       <main className="relative z-10 w-full">{children}</main>

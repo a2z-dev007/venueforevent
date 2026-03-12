@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -10,8 +10,10 @@ interface PetalProps {
 const FloatingPetals = ({ count = 12, color = "rose" }: PetalProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const petals = useMemo(() => {
-    return Array.from({ length: count }, (_, i) => ({
+  const [petals, setPetals] = useState<{id: number, left: string, size: number, delay: number, duration: number, rotation: number, swayAmount: number}[]>([]);
+
+  useEffect(() => {
+    setPetals(Array.from({ length: count }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       size: Math.random() * 14 + 8,
@@ -19,7 +21,7 @@ const FloatingPetals = ({ count = 12, color = "rose" }: PetalProps) => {
       duration: Math.random() * 6 + 6,
       rotation: Math.random() * 360,
       swayAmount: Math.random() * 60 - 30,
-    }));
+    })));
   }, [count]);
 
   const petalColor = color === "rose" 
@@ -73,7 +75,9 @@ const FloatingPetals = ({ count = 12, color = "rose" }: PetalProps) => {
         ease: "sine.inOut"
       });
     });
-  }, { scope: containerRef });
+  }, { scope: containerRef, dependencies: [petals] });
+
+  if (petals.length === 0) return null;
 
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0 overflow-hidden">
