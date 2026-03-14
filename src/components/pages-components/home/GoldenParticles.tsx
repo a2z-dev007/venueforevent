@@ -1,17 +1,19 @@
-import { useRef, useMemo } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const GoldenParticles = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const particles = useMemo(() => {
-    return Array.from({ length: 30 }, (_, i) => ({
+  const [particles, setParticles] = useState<{id: number, left: string, top: string, size: number}[]>([]);
+
+  useEffect(() => {
+    setParticles(Array.from({ length: 30 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
       size: Math.random() * 4 + 2,
-    }));
+    })));
   }, []);
 
   useGSAP(() => {
@@ -51,7 +53,9 @@ const GoldenParticles = () => {
         ease: "sine.inOut"
       });
     });
-  }, { scope: containerRef });
+  }, { scope: containerRef, dependencies: [particles] });
+
+  if (particles.length === 0) return null;
 
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0 overflow-hidden">

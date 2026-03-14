@@ -54,14 +54,13 @@ export default function AboutUsPage() {
       heroSubtitle="VenueForEvent.com"
       heroImage={aboutUsHero.src}
       heroDescription="Celebrations. Connections. Possibilities."
+      hideWave={true}
     >
       {/* Welcome Section */}
       <SectionWrapper
         variant="ivory"
         withDecorations
-        withWave="bottom"
-        waveVariant="white"
-        isMultiWave
+        className="pt-24 pb-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
         <ContentBlock align="center" accent="Welcome to VenueForEvent.com">
           <p className="text-3xl leading-relaxed text-wine font-heading mb-10 italic">
@@ -115,7 +114,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Company Overview Section */}
-      <SectionWrapper variant="white" withWave="bottom" waveVariant="ivory">
+      <SectionWrapper variant="white" className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
         <OrnateTitle title="Company Overview" accent="Legal & Structure" />
         <div className="mb-24">
           <StepGrid
@@ -216,9 +215,7 @@ export default function AboutUsPage() {
       <SectionWrapper
         variant="ivory"
         withDecorations
-        withWave="bottom"
-        waveVariant="white"
-        isMultiWave
+        className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         id="story"
       >
         <OrnateTitle title="Our Story" accent="A Journey of Vision" />
@@ -313,8 +310,7 @@ export default function AboutUsPage() {
       {/* Mission & Vision */}
       <SectionWrapper
         variant="white"
-        withWave="bottom"
-        waveVariant="dark"
+        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
@@ -383,8 +379,7 @@ export default function AboutUsPage() {
       {/* Core Values */}
       <SectionWrapper
         variant="dark"
-        withWave="bottom"
-        waveVariant="white"
+        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
         withDecorations
       >
         <OrnateTitle title="Our Core Values" accent="The Pillars of Trust" />
@@ -453,9 +448,7 @@ export default function AboutUsPage() {
       {/* Geographic Strength */}
       <SectionWrapper
         variant="white"
-        withWave="bottom"
-        waveVariant="gradient"
-        isMultiWave
+        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
       >
         <OrnateTitle
@@ -618,7 +611,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Social & Corporate Core */}
-      <SectionWrapper variant="gradient" withWave="bottom" waveVariant="white">
+      <SectionWrapper variant="gradient" className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
         <AlternatingGrid
           items={[
             {
@@ -692,8 +685,7 @@ export default function AboutUsPage() {
       {/* Tech & Platform Strength */}
       <SectionWrapper
         variant="white"
-        withWave="bottom"
-        waveVariant="ivory"
+        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
       >
         <OrnateTitle
@@ -765,9 +757,7 @@ export default function AboutUsPage() {
       {/* Social Responsibility */}
       <SectionWrapper
         variant="ivory"
-        withWave="bottom"
-        waveVariant="white"
-        isMultiWave
+        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         withDecorations
       >
         <OrnateTitle
@@ -858,7 +848,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Why Investors Believe */}
-      <SectionWrapper variant="white" withWave="bottom" waveVariant="dark">
+      <SectionWrapper variant="white" className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
         <OrnateTitle
           title="Why Investors Believe"
           accent="The Future of Discovery"
@@ -969,7 +959,7 @@ function FinalBrandingSection() {
   return (
     <SectionWrapper
       variant="dark"
-      withWave="top"
+      className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
       parallaxImage="https://images.unsplash.com/photo-1519225495810-758445bf0042?q=80&w=2070&auto=format&fit=crop"
       id="final-branding"
     >
@@ -1062,7 +1052,7 @@ function FinalBrandingSection() {
                 <div className="absolute -inset-24 bg-wine/20 blur-[120px] rounded-full -z-10 group-hover:bg-wine/30 transition-all duration-1000" />
 
                 <motion.div style={{ scale }} className="text-center space-y-6">
-                  <h4 className="font-heading text-3xl sm:text-5xl md:text-7xl lg:text-[10vw] font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-luxury whitespace-nowrap">
+                  <h4 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-[6vw] font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-luxury break-words w-full">
                     VenueForEvent.com
                   </h4>
                   <p className="font-heading text-xl sm:text-3xl md:text-4xl font-bold opacity-50 uppercase tracking-[0.6em] text-white">
