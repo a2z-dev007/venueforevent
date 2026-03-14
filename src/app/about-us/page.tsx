@@ -60,7 +60,8 @@ export default function AboutUsPage() {
       <SectionWrapper
         variant="ivory"
         withDecorations
-        className="pt-24 pb-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        sideDecorations
+        className="pt-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
         <ContentBlock align="center" accent="Welcome to VenueForEvent.com">
           <p className="text-3xl leading-relaxed text-wine font-heading mb-10 italic">
@@ -114,7 +115,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Company Overview Section */}
-      <SectionWrapper variant="white" className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+      <SectionWrapper variant="white" className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
         <OrnateTitle title="Company Overview" accent="Legal & Structure" />
         <div className="mb-24">
           <StepGrid
@@ -144,14 +145,14 @@ export default function AboutUsPage() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="group"
+            className="group h-full"
           >
-            <Tilt>
+            <Tilt className="h-full">
               <div className="bg-ivory/50 p-12 rounded-[4rem] border border-champagne/20 shadow-inner relative h-full">
                 <div className="absolute top-10 right-10 text-champagne/10">
                   <History size={100} />
@@ -170,9 +171,9 @@ export default function AboutUsPage() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="group"
+            className="group h-full"
           >
-            <Tilt>
+            <Tilt className="h-full">
               <div className="bg-wine/5 p-12 rounded-[4rem] border border-wine/10 shadow-inner relative h-full">
                 <div className="absolute top-10 right-10 text-wine/10">
                   <TrendingUp size={100} />
@@ -192,7 +193,7 @@ export default function AboutUsPage() {
           <SubTitle className="text-center mb-16 text-4xl">
             Our platform bridges:
           </SubTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
             <HighlightCard
               icon={Heart}
               title="Social Celebrations (65% focus)"
@@ -215,7 +216,8 @@ export default function AboutUsPage() {
       <SectionWrapper
         variant="ivory"
         withDecorations
-        className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        sideDecorations
+        className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         id="story"
       >
         <OrnateTitle title="Our Story" accent="A Journey of Vision" />
@@ -229,7 +231,7 @@ export default function AboutUsPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
           {[
             {
               title: "Executive Boardrooms",
@@ -263,9 +265,9 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group"
+              className="group h-full"
             >
-              <Tilt>
+              <Tilt className="h-full">
                 <div className="p-10 rounded-[4rem] bg-white border border-champagne/10 shadow-sm hover:shadow-2xl transition-all text-center h-full">
                   <div className="h-20 w-20 mx-auto rounded-3xl bg-ivory text-wine flex items-center justify-center mb-8 group-hover:bg-wine group-hover:text-white transition-all transform group-hover:rotate-12">
                     <item.icon size={32} />
@@ -310,17 +312,18 @@ export default function AboutUsPage() {
       {/* Mission & Vision */}
       <SectionWrapper
         variant="white"
-        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+        sideDecorations
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-10 h-full flex flex-col"
           >
-            <ContentBlock title="Our Mission" accent="The Purpose" width="full">
+            <ContentBlock title="Our Mission" accent="The Purpose" width="full" className="flex-1 flex flex-col">
               <p className="text-2xl leading-relaxed text-muted-foreground mb-12 italic">
                 To simplify venue discovery and event planning across India and
                 South Asia through a technology-driven, transparent, and
@@ -349,9 +352,9 @@ export default function AboutUsPage() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-10 h-full flex flex-col"
           >
-            <ContentBlock title="Our Vision" accent="The Future" width="full">
+            <ContentBlock title="Our Vision" accent="The Future" width="full" className="flex-1 flex flex-col">
               <p className="text-2xl leading-relaxed text-muted-foreground mb-12 italic">
                 To become South Asia’s most trusted and scalable venue
                 marketplace — known for quality listings, transparent
@@ -379,11 +382,12 @@ export default function AboutUsPage() {
       {/* Core Values */}
       <SectionWrapper
         variant="dark"
-        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
+        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
         withDecorations
+        sideDecorations
       >
-        <OrnateTitle title="Our Core Values" accent="The Pillars of Trust" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <OrnateTitle title="Our Core Values" accent="The Pillars of Trust" variant="dark" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
           {[
             {
               num: "01",
@@ -422,9 +426,9 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group"
+              className="group h-full"
             >
-              <Tilt>
+              <Tilt className="h-full">
                 <div className="p-12 rounded-[4rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group relative overflow-hidden h-full">
                   <div className="absolute -top-6 -right-6 text-9xl font-black text-white/5 select-none transition-colors group-hover:text-white/10">
                     {v.num}
@@ -448,8 +452,9 @@ export default function AboutUsPage() {
       {/* Geographic Strength */}
       <SectionWrapper
         variant="white"
-        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+        sideDecorations
       >
         <OrnateTitle
           title="Our Geographic Strength"
@@ -505,15 +510,15 @@ export default function AboutUsPage() {
           </div>
 
           {/* Section 2: Metros */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="group"
+              className="group h-full"
             >
-              <Tilt>
-                <div className="p-16 rounded-[5rem] bg-dark-accent text-white shadow-2xl relative overflow-hidden h-full border border-white/10">
+              <Tilt className="h-full">
+                <div className="p-16 rounded-[5rem] bg-dark-accent text-white shadow-2xl relative overflow-hidden h-full flex flex-col border border-white/10">
                   <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-wine opacity-10 blur-3xl rounded-full" />
                   <h4 className="font-heading text-4xl font-bold text-champagne mb-12 flex items-center gap-6">
                     <Building2 className="h-10 w-10" /> Metros & Emerging Cities
@@ -563,10 +568,10 @@ export default function AboutUsPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="group"
+              className="group h-full"
             >
-              <Tilt>
-                <div className="p-16 rounded-[5rem] bg-ivory/80 backdrop-blur-md border border-wine/10 shadow-2xl relative overflow-hidden h-full">
+              <Tilt className="h-full">
+                <div className="p-16 rounded-[5rem] bg-ivory/80 backdrop-blur-md border border-wine/10 shadow-2xl relative overflow-hidden h-full flex flex-col">
                   <div className="absolute -top-10 -right-10 w-80 h-80 bg-champagne/10 blur-3xl rounded-full" />
                   <h4 className="font-heading text-4xl font-bold text-wine mb-12 flex items-center gap-6">
                     <Globe className="h-10 w-10" /> State-Wide Coverage
@@ -611,7 +616,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Social & Corporate Core */}
-      <SectionWrapper variant="gradient" className="py-24 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+      <SectionWrapper variant="gradient" className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
         <AlternatingGrid
           items={[
             {
@@ -685,8 +690,9 @@ export default function AboutUsPage() {
       {/* Tech & Platform Strength */}
       <SectionWrapper
         variant="white"
-        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
         parallaxImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+        sideDecorations
       >
         <OrnateTitle
           title="Technology & Platform Strength"
@@ -703,7 +709,7 @@ export default function AboutUsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
           {[
             { title: "Scalable Architecture", icon: Layers },
             { title: "Structured Database Systems", icon: Package },
@@ -711,8 +717,8 @@ export default function AboutUsPage() {
             { title: "Advanced Inquiry Routing", icon: Zap },
             { title: "High-Performance Frontend", icon: Rocket },
           ].map((tech, i) => (
-            <motion.div key={i} className="group">
-              <Tilt>
+            <motion.div key={i} className="group h-full">
+              <Tilt className="h-full">
                 <div className="p-12 rounded-[4rem] bg-ivory/60 backdrop-blur-md border border-champagne/20 flex flex-col items-center text-center h-full hover:bg-white transition-all">
                   <div className="h-20 w-20 mb-8 rounded-3xl bg-white text-wine flex items-center justify-center shadow-lg group-hover:bg-wine group-hover:text-white transition-all duration-500">
                     <tech.icon size={40} />
@@ -757,8 +763,9 @@ export default function AboutUsPage() {
       {/* Social Responsibility */}
       <SectionWrapper
         variant="ivory"
-        className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         withDecorations
+        sideDecorations
       >
         <OrnateTitle
           title="Our Social Responsibility"
@@ -772,7 +779,7 @@ export default function AboutUsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           <HighlightCard
             icon={Leaf}
             title="Sustainable Event Promotion"
@@ -848,7 +855,7 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Why Investors Believe */}
-      <SectionWrapper variant="white" className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+      <SectionWrapper variant="white" className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
         <OrnateTitle
           title="Why Investors Believe"
           accent="The Future of Discovery"
@@ -903,13 +910,13 @@ export default function AboutUsPage() {
           </div>
         </div>
 
-        <Tilt className="mt-32">
-          <div className="p-20 md:p-32 rounded-[6rem] bg-dark-accent text-white shadow-3xl relative overflow-hidden isolate border border-white/10">
+        <Tilt className="mt-24">
+          <div className="p-10 md:p-14 rounded-[3rem] md:rounded-[4rem] bg-dark-accent text-white shadow-2xl relative overflow-hidden isolate border border-white/10">
             <div className="absolute top-0 right-0 w-full h-full opacity-10 -z-10 bg-[radial-gradient(circle_at_top_right,var(--wine)_0%,transparent_70%)]" />
-            <p className="text-4xl font-heading text-center italic text-champagne mb-20 leading-snug">
+            <p className="text-xl md:text-2xl font-heading text-center italic text-champagne mb-6 leading-snug">
               VenueForEvent.com operates at the intersection of:
             </p>
-            <div className="flex flex-wrap justify-center gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {[
                 "Hospitality",
                 "Event Technology",
@@ -918,18 +925,18 @@ export default function AboutUsPage() {
               ].map((item, i) => (
                 <motion.div
                   key={item}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="px-12 py-8 rounded-[3rem] bg-white/5 border border-white/20 text-2xl font-bold italic tracking-wide group hover:bg-champagne transition-all duration-500"
+                  transition={{ delay: i * 0.05 }}
+                  className="px-4 py-3 md:px-5 md:py-4 rounded-2xl bg-white/5 border border-white/20 text-base md:text-lg font-bold italic text-center group hover:bg-champagne/20 hover:border-champagne/30 transition-all duration-300"
                 >
                   {item}
                 </motion.div>
               ))}
             </div>
-            <p className="mt-20 text-center text-xl text-white/60 italic max-w-5xl mx-auto border-t border-white/10 pt-16 leading-relaxed">
+            <p className="mt-8 text-center text-sm md:text-base text-white/70 italic max-w-3xl mx-auto border-t border-white/10 pt-6 leading-relaxed">
               "Backed by{" "}
-              <span className="text-champagne-gold font-bold">
+              <span className="text-champagne font-bold">
                 Homocation Asia Private Limited
               </span>{" "}
               and integrated with Spodia’s ecosystem, we are positioned for
@@ -939,13 +946,15 @@ export default function AboutUsPage() {
         </Tilt>
       </SectionWrapper>
 
-      {/* Looking Ahead & Final Word */}
-      <FinalBrandingSection />
+      {/* Looking Ahead */}
+      <LookingAheadSection />
+      {/* Final Word — separate section with distinct background */}
+      <FinalWordSection />
     </InfoPageLayout>
   );
 }
 
-function FinalBrandingSection() {
+function LookingAheadSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -958,10 +967,10 @@ function FinalBrandingSection() {
 
   return (
     <SectionWrapper
-      variant="dark"
-      className="py-32 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
-      parallaxImage="https://images.unsplash.com/photo-1519225495810-758445bf0042?q=80&w=2070&auto=format&fit=crop"
-      id="final-branding"
+      variant="ivory"
+      className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+      id="looking-ahead"
+      sideDecorations
     >
       <div
         ref={containerRef}
@@ -1005,14 +1014,14 @@ function FinalBrandingSection() {
               className="group"
             >
               <Tilt>
-                <div className="p-8 rounded-[2.5rem] bg-white border border-champagne/20 flex flex-col items-center text-center group transition-all duration-500 h-full hover:bg-wine hover:text-white">
-                  <div className="h-12 w-12 rounded-full bg-wine/5 text-wine flex items-center justify-center mb-6 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                <div className="p-8 rounded-[2.5rem] bg-white border border-champagne/10 shadow-sm hover:shadow-xl flex flex-col items-center text-center group transition-all duration-500 h-full hover:border-champagne/30">
+                  <div className="h-12 w-12 rounded-full bg-champagne/10 text-wine flex items-center justify-center mb-6 group-hover:bg-wine group-hover:text-white transition-colors border border-champagne/10">
                     <goal.icon size={24} />
                   </div>
-                  <h5 className="font-heading text-lg font-heavy mb-2 transition-colors">
+                  <h5 className="font-heading text-lg font-heavy mb-2 text-foreground">
                     {goal.title}
                   </h5>
-                  <p className="text-xs font-medium opacity-60 transition-all group-hover:opacity-90">
+                  <p className="text-sm font-medium text-muted-foreground leading-snug">
                     {goal.desc}
                   </p>
                 </div>
@@ -1022,56 +1031,86 @@ function FinalBrandingSection() {
         </div>
 
         <div className="space-y-16 relative py-20">
-          <p className="text-xl md:text-2xl text-champagne font-heading italic leading-relaxed max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground font-heading italic leading-relaxed max-w-4xl mx-auto">
             From heritage fort weddings in Rajasthan to large capacity
             auditoriums in New Delhi, from beach resort weddings in Goa to
             corporate wellness retreats in Kerala, our goal is clear:
           </p>
           <motion.h4
             style={{ scale, opacity, y }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-heading font-heavy tracking-tighter uppercase leading-[0.9] text-white"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-heading font-heavy tracking-tighter uppercase leading-[0.9] text-wine"
           >
             Make venue discovery simple, premium, and scalable.
           </motion.h4>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+}
 
-          <div className="pt-32">
-            <OrnateTitle title="Final Word" accent="Heart of the Marketplace" />
-            <div className="space-y-16">
-              <HighlightedQuote>
-                VenueForEvent.com is not just about venues. It is about
-                beginnings. It is about partnerships. It is about memories.
-              </HighlightedQuote>
-              <p className="text-xl md:text-3xl italic text-white/80 leading-relaxed max-w-5xl mx-auto">
-                Whether you are planning your wedding in Nainital, organizing a
-                seminar in Mumbai, hosting a gala dinner in Chandigarh, or
-                exploring a destination wedding in Kerala — we are here to
-                simplify the journey.
+function FinalWordSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 0.4], [0.95, 1]);
+
+  return (
+    <SectionWrapper
+      variant="dark"
+      className="py-32 pb-40 -mt-8 relative z-10 rounded-t-[4rem]"
+      id="final-branding"
+      sideDecorations
+    >
+      <div
+        ref={containerRef}
+        className="text-center space-y-16 max-w-6xl mx-auto px-6"
+      >
+        <div className="pt-8">
+          <OrnateTitle title="Final Word" accent="Heart of the Marketplace" variant="dark" />
+        </div>
+        <div className="space-y-16">
+          {/* High-contrast quote block: light bg + dark text for WCAG readability */}
+          <div className="p-8 md:p-12 rounded-[2.5rem] bg-white shadow-xl border border-champagne/20 max-w-4xl mx-auto">
+            <p className="text-lg md:text-2xl font-heading font-medium leading-relaxed italic text-foreground">
+              <span className="text-wine font-bold not-italic">VenueForEvent.com</span>
+              {" "}
+              is not just about venues. It is about beginnings. It is about
+              partnerships. It is about memories.
+            </p>
+          </div>
+
+          <p className="text-xl md:text-2xl italic text-white leading-relaxed max-w-5xl mx-auto [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
+            Whether you are planning your wedding in Nainital, organizing a
+            seminar in Mumbai, hosting a gala dinner in Chandigarh, or exploring
+            a destination wedding in Kerala — we are here to simplify the
+            journey.
+          </p>
+
+          <div className="py-20 flex flex-col items-center group relative isolate">
+            <div className="absolute -inset-24 bg-white/5 blur-[100px] rounded-full -z-10" />
+
+            <motion.div style={{ scale }} className="text-center space-y-6">
+              <h4 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-[6vw] font-black text-white uppercase tracking-[0.2em] mb-4 break-words w-full [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+                VenueForEvent.com
+              </h4>
+              <p className="font-heading text-xl sm:text-3xl md:text-4xl font-bold text-white uppercase tracking-[0.6em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+                A Part of Spodia
               </p>
+              <p className="font-heading text-sm sm:text-lg md:text-xl font-medium text-champagne-light mt-4 italic">
+                Powered by Homocation Asia Private Limited
+              </p>
+            </motion.div>
 
-              <div className="py-24 flex flex-col items-center group relative isolate">
-                <div className="absolute -inset-24 bg-wine/20 blur-[120px] rounded-full -z-10 group-hover:bg-wine/30 transition-all duration-1000" />
-
-                <motion.div style={{ scale }} className="text-center space-y-6">
-                  <h4 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-[6vw] font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-luxury break-words w-full">
-                    VenueForEvent.com
-                  </h4>
-                  <p className="font-heading text-xl sm:text-3xl md:text-4xl font-bold opacity-50 uppercase tracking-[0.6em] text-white">
-                    A Part of Spodia
-                  </p>
-                  <p className="font-heading text-sm sm:text-lg md:text-xl font-medium opacity-40 mt-4 italic text-white">
-                    Powered by Homocation Asia Private Limited
-                  </p>
-                </motion.div>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="font-accent text-3xl md:text-6xl text-champagne mt-24 drop-shadow-luxury"
-                >
-                  And we are just getting started.
-                </motion.p>
-              </div>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-accent text-3xl md:text-5xl text-champagne-light mt-20 [text-shadow:0_2px_4px_rgba(0,0,0,0.3)]"
+            >
+              And we are just getting started.
+            </motion.p>
           </div>
         </div>
       </div>

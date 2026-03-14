@@ -2,254 +2,160 @@
 
 import React from "react";
 import InfoPageLayout from "@/components/common/InfoPageLayout";
-import { 
-  SectionWrapper, 
-  ContentBlock, 
-  AlternatingGrid, 
-  SimpleChecklist, 
-  StepGrid, 
-  HighlightedQuote,
+import {
+  SectionWrapper,
+  ContentBlock,
+  SimpleChecklist,
+  StepGrid,
   OrnateTitle,
-  SubTitle
+  SubTitle,
 } from "@/components/common/InfoComponents";
-import { 
-  Handshake, 
-  Rocket, 
-  Users, 
-  Target, 
-  Zap, 
-  Globe, 
-  Heart, 
-  TrendingUp, 
-  Star, 
-  Building2, 
-  BarChart3, 
-  ShieldCheck, 
-  Award, 
-  Briefcase, 
-  Settings, 
-  PieChart,
-  Mail,
-  PhoneCall,
-  MessageSquare,
-  CheckCircle2
+import {
+  Handshake,
+  Building2,
+  Users,
+  Briefcase,
+  Globe,
+  Settings,
+  CheckCircle2,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import partnerHero from "@/assets/partner-hero.png";
+import Link from "next/link";
+
+const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function PartnerWithUsPage() {
   return (
-    <InfoPageLayout 
+    <InfoPageLayout
       heroTitle="Partner With Us"
-      heroSubtitle="Build India’s Powerful Event Ecosystem"
+      heroSubtitle="VenueForEvent.com"
       heroImage={partnerHero.src}
-      heroDescription="At VenueForEvent.com, we believe extraordinary events are never created alone. We’re building a structured, scalable, and trusted event marketplace across India — grow with us."
+      heroDescription="Let's Build India's Most Powerful Event Ecosystem — Together. At VenueForEvent.com, we believe extraordinary events are never created alone. Behind every royal palace wedding in Rajasthan, every beach resort wedding in Goa, every conference hall in New Delhi, and every corporate offsite resort in Uttarakhand — there is a network of venues, planners, hospitality brands, technology partners, and service experts working in sync."
     >
-      {/* Intro Section */}
-      <SectionWrapper withDecorations variant="ivory">
-        <ContentBlock align="center" accent="Strategic Alliances">
-          <p className="text-xl leading-relaxed text-muted-foreground font-medium italic">
-            Behind every royal palace wedding in Rajasthan and every corporate offsite resort in Uttarakhand — there is a network working in sync. We invite you to grow with our structured, scalable, and trusted marketplace.
+      {/* Intro */}
+      <SectionWrapper variant="ivory" withDecorations>
+        <ContentBlock align="center" width="full">
+          <p className="text-xl text-muted-foreground italic mb-8">
+            We&apos;re building a structured, scalable, and trusted event marketplace across India — and we invite you to grow with us. Whether you&apos;re a: Venue owner • Resort chain • Wedding planner • Corporate event agency • Production company • Hospitality brand • Technology provider • Investor • Strategic distribution partner — there&apos;s an opportunity to collaborate.
           </p>
         </ContentBlock>
-        
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-           {[
-             { name: "Venue Owners", icon: Building2 },
-             { name: "Resort Chains", icon: Globe },
-             { name: "Wedding Planners", icon: Heart },
-             { name: "Corporate Agencies", icon: Briefcase },
-             { name: "Tech Providers", icon: Zap }
-           ].map((p, i) => (
-             <div key={i} className="p-6 rounded-[2.5rem] bg-white border border-champagne/10 shadow-sm text-center group hover:shadow-xl transition-all">
-                <p.icon className="h-8 w-8 text-wine mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h5 className="text-[10px] uppercase font-black tracking-widest leading-tight">{p.name}</h5>
-             </div>
-           ))}
-        </div>
       </SectionWrapper>
 
       {/* Why Partner */}
       <SectionWrapper variant="white" withDecorations>
-         <OrnateTitle title="Why Partner With Us?" accent="Access India’s Booming Event Economy" />
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-               <p className="text-lg leading-relaxed text-muted-foreground italic">India’s wedding and corporate event market is expanding rapidly across Goa, Rajasthan, Kerala, and major metros. Demand is rising for best wedding venues in Mussoorie and MICE event venues in Mumbai.</p>
-               <HighlightedQuote>
-                  We bring structure, technology, SEO visibility, and verified connections to a fragmented market.
-               </HighlightedQuote>
-            </div>
-            <div className="p-10 rounded-[3.5rem] bg-ivory border border-champagne/10 shadow-inner space-y-8">
-               <SubTitle className="text-wine">The Opportunity:</SubTitle>
-               <SimpleChecklist items={[
-                 "Increase qualified inquiries",
-                 "Fill mid-week corporate slots",
-                 "Promote all-inclusive wedding pkg",
-                 "Improve digital discoverability",
-                 "Access both wedding & corporate clients"
-               ]} />
-            </div>
-         </div>
+        <OrnateTitle title="Why Partner With VenueForEvent.com?" accent="India's event market" />
+        <p className="text-center text-muted-foreground italic mb-8 max-w-3xl mx-auto">
+          India&apos;s wedding and corporate event market is expanding rapidly across destinations like: Mussoorie, Shimla, Manali, Nainital • Goa, Rajasthan, Kerala • Mumbai, New Delhi, Bengaluru • Chandigarh, Amritsar, Dehradun • Himachal Pradesh, Uttarakhand, Maharashtra.
+        </p>
+        <p className="text-center font-bold text-foreground mb-6">Demand is rising for:</p>
+        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mb-10">
+          {["Best wedding venues in Mussoorie", "Destination wedding resorts in Goa", "Luxury marriage gardens in Jaipur", "Forest wedding venues in Uttarakhand", "Conference halls in New Delhi", "MICE event venues in Mumbai", "Corporate wellness retreats in Kerala", "Executive boardroom rentals in Bengaluru", "Product launch venues in Mumbai"].map((item, i) => (
+            <span key={i} className="px-4 py-2 rounded-full bg-ivory border border-champagne/20 text-xs font-medium text-foreground">{item}</span>
+          ))}
+        </div>
+        <p className="text-center font-heading text-wine italic">But the market remains fragmented. We bring structure, technology, SEO visibility, and verified connections.</p>
       </SectionWrapper>
 
-      {/* Categories Section */}
-      <SectionWrapper variant="gradient" withDecorations>
-         <ContentBlock title="Partnership Categories" accent="Ways to Collaborate" align="center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 w-full text-left">
-               <div className="p-10 rounded-[4rem] bg-white border border-wine/10 shadow-sm space-y-6">
-                  <div className="h-12 w-12 rounded-2xl bg-wine text-white flex items-center justify-center mb-6 shadow-lg">
-                     <Building2 className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-heading text-xl font-bold">Venue Partners</h4>
-                  <p className="text-xs text-muted-foreground italic leading-relaxed">Heritage forts in Rajasthan, 5-star hotels in Manali, convention centers in Mumbai, and corporate resorts in Uttarakhand.</p>
-                  <hr className="border-wine/5" />
-                  <p className="text-xs font-black uppercase tracking-widest text-wine cursor-pointer hover:underline">List Your Venue</p>
-               </div>
-               <div className="p-10 rounded-[4rem] bg-dark-accent text-white shadow-2xl space-y-6">
-                  <div className="h-12 w-12 rounded-2xl bg-white/10 text-champagne flex items-center justify-center mb-6 shadow-lg">
-                     <Users className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-heading text-xl font-bold">Service Partners</h4>
-                  <p className="text-xs text-white/50 italic leading-relaxed">Top wedding planners, theme decorators, catering services in Amritsar, and MICE exhibition partners in Mumbai.</p>
-                  <hr className="border-white/10" />
-                  <p className="text-xs font-black uppercase tracking-widest text-champagne cursor-pointer hover:underline">List Your Service</p>
-               </div>
-               <div className="p-10 rounded-[4rem] bg-white border border-wine/10 shadow-sm space-y-6">
-                  <div className="h-12 w-12 rounded-2xl bg-ivory text-wine flex items-center justify-center mb-6 shadow-lg">
-                     <Briefcase className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-heading text-xl font-bold">Corporate Alliances</h4>
-                  <p className="text-xs text-muted-foreground italic leading-relaxed">Collaborating with HR and marketing agencies for annual retreats and large capacity product launch venues.</p>
-                  <hr className="border-wine/5" />
-                  <p className="text-xs font-black uppercase tracking-widest text-wine cursor-pointer hover:underline">Strategic Booking</p>
-               </div>
-            </div>
-         </ContentBlock>
+      {/* Partnership Categories */}
+      <SectionWrapper variant="gradient" withDecorations className="section-bg-premium">
+        <OrnateTitle title="Partnership Categories" accent="Ways to collaborate" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left">
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-white border border-champagne/20 shadow-soft">
+            <div className="h-14 w-14 rounded-2xl bg-wine/10 text-wine flex items-center justify-center mb-6"><Building2 className="h-7 w-7" /></div>
+            <SubTitle className="text-wine">🏰 Venue Partners</SubTitle>
+            <p className="text-sm text-muted-foreground italic mb-4">Own or manage: Heritage fort wedding venues in Rajasthan • 5 star wedding hotels in Manali • Luxury villas for weddings in Coorg • Banquet halls in Chandigarh • Convention centers in Mumbai • Seminar venues with accommodation in Shimla • Gala dinner venues in Bengaluru • Corporate offsite resorts in Uttarakhand.</p>
+            <SimpleChecklist columns={1} items={["✔ Increase qualified inquiries", "✔ Fill mid-week corporate slots", "✔ Promote all-inclusive wedding packages", "✔ Improve digital discoverability", "✔ Access both wedding & corporate clients"]} />
+            <Link href="/list-your-service" className="inline-block mt-6 text-wine font-bold text-sm hover:underline">👉 Visit: List Your Venue</Link>
+          </motion.div>
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-dark-accent text-white shadow-luxury border border-champagne/10">
+            <div className="h-14 w-14 rounded-2xl bg-white/10 text-champagne flex items-center justify-center mb-6"><Users className="h-7 w-7" /></div>
+            <SubTitle className="text-champagne">🎉 Service & Vendor Partners</SubTitle>
+            <p className="text-sm text-white/80 italic mb-4">If you provide: Top wedding planners in Rajasthan • Theme wedding decorators in Chandigarh • Wedding catering services in Amritsar • Best wedding photographers in Punjab • Corporate event management in Maharashtra • Dealers meet organizers in New Delhi • Team building activities in Rishikesh • Exhibition production in Mumbai — we connect you with high-intent clients.</p>
+            <Link href="/list-your-service" className="inline-block mt-6 text-champagne font-bold text-sm hover:underline">👉 Visit: List Your Service</Link>
+          </motion.div>
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-white border border-champagne/20 shadow-soft">
+            <div className="h-14 w-14 rounded-2xl bg-wine/10 text-wine flex items-center justify-center mb-6"><Briefcase className="h-7 w-7" /></div>
+            <SubTitle className="text-wine">🏢 Corporate & Enterprise Partnerships</SubTitle>
+            <p className="text-sm text-muted-foreground italic mb-4">We collaborate with: HR departments • Corporate travel managers • Event procurement teams • Marketing & brand activation agencies. Supporting needs like: Annual corporate retreat in Himachal Pradesh • Residential conference packages in Kerala • Business meeting rooms in Mumbai • Large capacity auditoriums in New Delhi • Networking event venues in Bengaluru. We can create structured booking partnerships and preferred venue programs.</p>
+          </motion.div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
+          <motion.div {...fadeUp} className="p-8 rounded-[2.5rem] glass-premium border border-champagne/20">
+            <SubTitle className="text-wine flex items-center gap-2"><Globe className="h-6 w-6" /> 🤝 Strategic Hospitality Alliances</SubTitle>
+            <p className="text-sm text-muted-foreground italic mb-4">We welcome partnerships with: Resort chains • Hotel groups • Destination management companies • Regional tourism boards • Luxury property aggregators. Together, we can promote: Destination wedding cost packages in Goa • Royal palace weddings in Rajasthan • Riverside wedding spots in Rishikesh • Workation resorts in Uttarakhand • Tech-ready conference spaces in Bengaluru.</p>
+          </motion.div>
+          <motion.div {...fadeUp} className="p-8 rounded-[2.5rem] glass-premium border border-champagne/20">
+            <SubTitle className="text-wine flex items-center gap-2"><Settings className="h-6 w-6" /> 💻 Technology & Integration Partners</SubTitle>
+            <p className="text-sm text-muted-foreground italic mb-4">We are building a scalable tech-first ecosystem. We collaborate with: CRM providers • Event tech platforms • AV & hybrid event solutions • Payment & booking integrations • AI-driven analytics providers. If your technology supports event execution, let&apos;s explore synergy.</p>
+          </motion.div>
+        </div>
+        <motion.div {...fadeUp} className="mt-12 p-10 rounded-[3rem] bg-dark-accent text-white shadow-luxury border border-champagne/10 max-w-3xl mx-auto text-center">
+          <SubTitle className="text-champagne">📈 Investor & Growth Partnerships</SubTitle>
+          <p className="text-white/90 italic mb-4">VenueForEvent.com operates under Homocation Asia Pvt. Ltd., bringing structured governance and hospitality experience. We are open to: Strategic growth capital • Regional expansion partners • Hospitality ecosystem investors • Technology collaboration.</p>
+          <p className="text-sm text-white/80">India&apos;s event industry — especially destination weddings and MICE — presents high-value transaction potential. From beach resort weddings in Kerala to conference halls in New Delhi, we are building scalable infrastructure.</p>
+        </motion.div>
       </SectionWrapper>
 
-      {/* Strategic Alliances & Tech */}
-      <SectionWrapper variant="white">
-         <AlternatingGrid items={[
-           {
-             title: "Strategic Hospitality Alliances",
-             icon: Globe,
-             text: (
-                <div className="space-y-6">
-                   <p>We welcome partnerships with resort chains, hotel groups, and DMCs to promote destination wedding cost packages in Goa and workation resorts in Uttarakhand.</p>
-                   <SimpleChecklist items={[
-                     "Resort chains & Hotel groups",
-                     "Destination management companies",
-                     "Regional tourism boards",
-                     "Luxury property aggregators"
-                   ]} />
-                </div>
-             ),
-             image: "https://images.unsplash.com/photo-1540575861501-7ce0e1d1aa2b?q=80&w=2070&auto=format&fit=crop"
-           },
-           {
-             title: "Technology & Integration Partners",
-             icon: Settings,
-             text: (
-                <div className="space-y-6">
-                   <p>We collaborate with CRM providers, event tech platforms, and AI-driven analytics to build a scalable tech-first ecosystem.</p>
-                   <SimpleChecklist items={[
-                     "CRM & Event tech platforms",
-                     "AV & hybrid event solutions",
-                     "Payment & booking integrations",
-                     "AI-driven analytics providers"
-                   ]} />
-                </div>
-             ),
-             image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop"
-           }
-         ]} />
-      </SectionWrapper>
-
-      {/* Differentiators */}
+      {/* What Makes Us Different */}
       <SectionWrapper variant="ivory" withDecorations>
-         <ContentBlock title="What Makes Us Different?" accent="The Competitive Edge" align="center">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 text-left">
-               {[
-                 { title: "Dual Focus", icon: Target, desc: "Combining Wed-Social and Corporate MICE events. Doubling inventory utility and revenue potential." },
-                 { title: "SEO Engine", icon: TrendingUp, desc: "High-visibility presence for searches like 'Best wedding venues in Nainital' or 'Conference halls in New Delhi'." },
-                 { title: "Verified Network", icon: ShieldCheck, desc: "Building an ecosystem — not just a directory. Prioritizing quality and long-term collaboration." }
-               ].map((diff, di) => (
-                  <div key={di} className="group p-10 rounded-[3.5rem] bg-white border border-champagne/10 hover:shadow-2xl transition-all">
-                     <div className="h-14 w-14 rounded-2xl bg-ivory text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all shadow-inner">
-                        <diff.icon className="h-7 w-7" />
-                     </div>
-                     <h4 className="font-heading text-xl font-bold mb-4">{diff.title}</h4>
-                     <p className="text-sm text-muted-foreground italic leading-relaxed">{diff.desc}</p>
-                  </div>
-               ))}
-            </div>
-         </ContentBlock>
+        <OrnateTitle title="What Makes Us Different?" accent="Three pillars" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-white border border-champagne/20 shadow-soft text-center">
+            <p className="font-heading text-2xl font-bold text-wine mb-4">1️⃣ Dual Focus: Weddings + Corporate</p>
+            <p className="text-sm text-muted-foreground italic">Most platforms specialize in either weddings or conferences. We combine 💍 Social celebrations and 🏢 Corporate & MICE events. This doubles inventory utility and revenue potential.</p>
+          </motion.div>
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-white border border-champagne/20 shadow-soft text-center">
+            <p className="font-heading text-2xl font-bold text-wine mb-4">2️⃣ SEO & Organic Demand Engine</p>
+            <p className="text-sm text-muted-foreground italic mb-4">We build high-visibility digital presence for searches like: Best wedding venues in Nainital • Destination wedding resorts in Goa • Corporate offsite resorts in Uttarakhand • Conference halls in New Delhi • Product launch venues in Mumbai.</p>
+            <p className="text-sm font-medium text-foreground">This drives inbound inquiries without overdependence on paid ads.</p>
+          </motion.div>
+          <motion.div {...fadeUp} className="p-10 rounded-[3rem] bg-white border border-champagne/20 shadow-soft text-center">
+            <p className="font-heading text-2xl font-bold text-wine mb-4">3️⃣ Structured & Verified Network</p>
+            <p className="text-sm text-muted-foreground italic">We prioritize: ✔ Quality over quantity • ✔ Verified partnerships • ✔ Transparent communication • ✔ Long-term collaboration. We are building an ecosystem — not a listing directory.</p>
+          </motion.div>
+        </div>
       </SectionWrapper>
 
       {/* How Partnership Works */}
-      <SectionWrapper variant="white">
-         <OrnateTitle title="How Partnership Works" accent="From Connection to Growth" />
-         <StepGrid steps={[
-           { title: "Connect With Us", desc: "Submit your details through appropriate partnership pages.", icon: Handshake },
-           { title: "Strategic Discussion", desc: "Understanding category, growth goals, and target segments.", icon: PieChart },
-           { title: "Onboarding", desc: "Listing optimization, profile creation, and setup.", icon: Rocket },
-           { title: "Growth & Visibility", desc: "Joint campaigns and capturing peak season demand.", icon: BarChart3 }
-         ]} />
-         <div className="mt-16 text-center italic text-sm opacity-50 max-w-2xl mx-auto">
-            “Tell us about your business — our team will respond within 48 working hours.”
-         </div>
-      </SectionWrapper>
-
-      {/* Investor & Growth */}
-      <SectionWrapper variant="dark" withDecorations>
-         <ContentBlock title="Investor & Growth Partnerships" accent="Homocation Asia Pvt. Ltd." className="text-white">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <p className="text-xl italic text-champagne leading-relaxed font-heading">"India’s event industry presents high-value transaction potential. Grow with a structured governance model."</p>
-                  <p className="text-sm text-white/50">Operating at the intersection of hospitality, technology, and India’s expanding celebration economy.</p>
-               </div>
-               <div className="grid grid-cols-1 gap-4">
-                  {[
-                    "Strategic growth capital", "Regional expansion partners", "Hospitality ecosystem investors", "Technology collaboration"
-                  ].map(item => (
-                    <div key={item} className="flex gap-4 items-center group">
-                       <CheckCircle2 className="h-4 w-4 text-champagne group-hover:scale-110 transition-transform" />
-                       <p className="text-xs font-bold text-white/80">{item}</p>
-                    </div>
-                  ))}
-               </div>
-            </div>
-         </ContentBlock>
-      </SectionWrapper>
-
-      {/* Final Section */}
       <SectionWrapper variant="white" withDecorations>
-         <div className="space-y-16 py-12">
-            <HighlightedQuote>
-               "Peak bookings are happening months in advance. The earlier you partner, the stronger your visibility before high-demand cycles."
-            </HighlightedQuote>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {[
-                 { title: "Email Partnership", icon: Mail, value: "partnerships@venueforevent.com" },
-                 { title: "Partnership Team", icon: PhoneCall, value: "+91-8800842084" },
-                 { title: "WhatsApp Us", icon: MessageSquare, value: "Quick Discussion" }
-               ].map((cta, ci) => (
-                  <div key={ci} className="group p-8 rounded-[3rem] bg-ivory border border-champagne/10 hover:bg-wine hover:text-white transition-all cursor-pointer shadow-sm text-center">
-                     <cta.icon className="h-10 w-10 text-wine mx-auto mb-6 group-hover:text-white transition-colors group-hover:scale-110 transition-transform" />
-                     <h5 className="font-heading text-lg font-bold mb-3">{cta.title}</h5>
-                     <p className="text-[10px] uppercase font-black tracking-widest opacity-60 group-hover:opacity-100">{cta.value}</p>
-                  </div>
-               ))}
-            </div>
-
-            <div className="text-center space-y-8 pt-12">
-               <h4 className="font-heading text-4xl font-black text-wine uppercase tracking-[0.2em] leading-none mb-4">Partner with us — and grow beyond boundaries.</h4>
-               <p className="font-accent text-3xl text-wine opacity-60 italic">VenueForEvent.com</p>
-               <p className="text-[10px] uppercase font-black tracking-[0.3em] text-muted-foreground/30 italic">We treat every partnership inquiry with confidentiality and strategic focus.</p>
-            </div>
-         </div>
+        <OrnateTitle title="How Partnership Works" accent="From connection to growth" />
+        <StepGrid steps={[
+          { title: "Step 1: Connect With Us", desc: "Submit your details through the appropriate partnership page or contact form. Tell us about your business — our team will respond within 48 working hours.", icon: Handshake },
+          { title: "Step 2: Strategic Discussion", desc: "We understand: Your service category • Cities of operation • Growth goals • Target client segment.", icon: Users },
+          { title: "Step 3: Onboarding & Integration", desc: "Depending on partnership type: Venue listing optimization • Service provider profile creation • Corporate agreement structuring • Strategic alliance announcement • Technical integration setup.", icon: Building2 },
+          { title: "Step 4: Growth & Visibility", desc: "We collaborate to: Improve booking conversion • Expand city coverage • Launch joint campaigns • Capture peak wedding & corporate season demand.", icon: CheckCircle2 },
+        ]} />
       </SectionWrapper>
 
+      {/* Cities & Why Partner Now */}
+      <SectionWrapper variant="gradient" withDecorations>
+        <ContentBlock align="center" title="Cities & States We Actively Expand In" accent="Pan-India presence">
+          <p className="text-muted-foreground italic mb-6">We are aggressively building presence in:</p>
+          <div className="max-w-3xl mx-auto text-left space-y-4">
+            <p className="font-bold text-foreground"><strong className="text-wine">Hill Stations & Destinations:</strong> Mussoorie, Shimla, Manali, Srinagar, Gulmarg, Nainital, Dalhousie, Munnar, Coorg, Ooty</p>
+            <p className="font-bold text-foreground"><strong className="text-wine">Metros & Corporate Hubs:</strong> New Delhi, Mumbai, Bengaluru, Chandigarh, Amritsar, Dehradun</p>
+            <p className="font-bold text-foreground"><strong className="text-wine">High-Demand States:</strong> Rajasthan, Goa, Kerala, Uttarakhand, Himachal Pradesh, Maharashtra, Karnataka, Tamil Nadu, Punjab, Haryana, Uttar Pradesh, Gujarat, West Bengal, Andhra Pradesh</p>
+          </div>
+          <p className="mt-12 font-heading text-wine font-bold">Why Partner Now?</p>
+          <p className="text-muted-foreground italic mt-4">Peak bookings are happening months in advance for: Destination wedding resorts in Goa • Heritage fort weddings in Rajasthan • Corporate wellness retreats in Kerala • Convention centers in Mumbai • Seminar halls for rent in New Delhi. The earlier you partner, the stronger your visibility before high-demand cycles.</p>
+        </ContentBlock>
+      </SectionWrapper>
+
+      {/* Final CTA */}
+      <SectionWrapper variant="dark" withDecorations className="section-bg-dark">
+        <ContentBlock align="center" title="Let's Build Together" accent="If you believe in" className="text-white">
+          <p className="text-white/90 italic mb-10">If you believe in: ✔ Professional growth • ✔ Transparent collaboration • ✔ Scalable digital distribution • ✔ Hospitality excellence • ✔ Long-term brand equity — then VenueForEvent.com is your ecosystem.</p>
+          <p className="text-2xl font-heading text-champagne font-bold mb-12">🚀 Start the Conversation</p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="mailto:partnerships@venueforevent.com" className="btn-luxury btn-shimmer inline-flex items-center gap-2">📧 partnerships@venueforevent.com</a>
+            <a href="tel:+918800842084" className="btn-outline-luxury inline-flex items-center gap-2 text-white border-white/50 hover:bg-white/10">📞 +91-8800842084</a>
+            <a href="https://wa.me/918800842084" className="btn-outline-luxury inline-flex items-center gap-2 text-white border-white/50 hover:bg-white/10">💬 WhatsApp Us for Quick Discussion</a>
+          </div>
+          <p className="mt-10 text-sm text-white/60 italic">We treat every partnership inquiry with confidentiality and strategic focus.</p>
+          <p className="mt-8 text-lg text-white/80 italic">From royal palace weddings in Rajasthan to corporate conferences in New Delhi, from beach resort celebrations in Goa to executive boardroom rentals in Bengaluru — we are building the future of event discovery in India. Partner with us — and grow beyond boundaries.</p>
+        </ContentBlock>
+      </SectionWrapper>
     </InfoPageLayout>
   );
 }

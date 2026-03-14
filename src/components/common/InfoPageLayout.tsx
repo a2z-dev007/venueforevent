@@ -7,7 +7,7 @@ import MandalaDecor from "@/components/pages-components/home/MandalaDecor";
 import HangingGarland from "@/components/pages-components/home/HangingGarland";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { WaveDivider } from "./InfoComponents";
+import { HeroCurveDivider } from "./InfoComponents";
 
 interface InfoPageLayoutProps {
   children: React.ReactNode;
@@ -146,7 +146,7 @@ export default function InfoPageLayout({
           </motion.div>
         </motion.div>
 
-        {!hideWave && <WaveDivider position="bottom" variant="ivory" isMultiWave />}
+        <HeroCurveDivider variant="ivory" />
       </section>
 
       <main className="relative z-10 w-full">{children}</main>

@@ -7,12 +7,51 @@ import FloralDivider from "@/components/pages-components/home/FloralDivider";
 import CornerRose from "@/components/pages-components/home/CornerRose";
 import MandalaDecor from "@/components/pages-components/home/MandalaDecor";
 import FloatingPetals from "@/components/pages-components/home/FloatingPetals";
+import SideFloralBorders from "@/components/pages-components/home/SideFloralBorders";
 import { cn } from "@/lib/utils";
 
 /**
  * --- CORE ELEMENTS ---
  */
 
+/** Single smooth curve for hero bottom (blends with next section). */
+export function HeroCurveDivider({
+  variant = "ivory",
+}: {
+  variant?: "white" | "ivory" | "dark" | "gradient" | "transparent";
+}) {
+  const colors = {
+    white: "hsl(var(--background))",
+    ivory: "hsl(var(--ivory))",
+    dark: "hsl(var(--dark-2))",
+    gradient: "hsl(var(--ivory))",
+    transparent: "transparent",
+  };
+  const fillColor = colors[variant as keyof typeof colors] || colors.ivory;
+
+  return (
+    <div
+      className="absolute left-0 right-0 bottom-0 w-full min-w-full leading-[0] z-20 pointer-events-none"
+      style={{ marginBottom: "-1px" }}
+    >
+      <svg
+        viewBox="0 0 1200 100"
+        preserveAspectRatio="none"
+        className="block w-full min-w-full h-[80px] md:h-[100px]"
+      >
+        <path
+          d="M0,100 L0,28 Q400,72 600,50 Q800,72 1200,28 L1200,100 Z"
+          fill={fillColor}
+        />
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Wave divider between sections. Single solid path so it blends with the next
+ * section (no grey/unblended layers). No overflow-hidden to avoid clipped edges.
+ */
 export function WaveDivider({
   position = "bottom",
   variant = "white",
@@ -34,40 +73,28 @@ export function WaveDivider({
 
   const fillColor = colors[variant as keyof typeof colors] || colors.white;
 
+  const pathD =
+    "M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,12.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z";
+
   return (
     <div
       className={cn(
-        "absolute left-0 right-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none",
+        "absolute left-0 right-0 w-full min-w-full leading-[0] z-20 pointer-events-none",
         position === "top" ? "-top-[1px]" : "-bottom-[1px]",
         flip && "scale-x-[-1]",
       )}
+      style={{ overflow: "visible" }}
     >
       <svg
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
         className={cn(
-          "relative block w-full h-[60px] md:h-[120px]",
+          "relative block w-full min-w-full h-[60px] md:h-[120px]",
           position === "top" && "rotate-180",
         )}
+        style={{ overflow: "visible" }}
       >
-        {isMultiWave && (
-          <>
-            <path
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,12.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-              fill={fillColor}
-              opacity="0.3"
-            />
-            <path
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z"
-              fill={fillColor}
-              opacity="0.5"
-            />
-          </>
-        )}
-        <path
-          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,12.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-          fill={fillColor}
-        />
+        <path d={pathD} fill={fillColor} />
       </svg>
     </div>
   );
@@ -83,6 +110,7 @@ export function Tilt({
   const ref = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const fillHeight = className?.includes("h-full");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -111,6 +139,7 @@ export function Tilt({
       className={className}
     >
       <div
+        className={fillHeight ? "h-full" : undefined}
         style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
       >
         {children}
@@ -129,6 +158,8 @@ interface SectionWrapperProps {
   waveVariant?: "ivory" | "white" | "dark" | "gradient" | "transparent";
   className?: string;
   withDecorations?: boolean;
+  /** Animated floral borders on left and right edges (wedding-style framing) */
+  sideDecorations?: boolean;
   withWave?: "top" | "bottom" | "both" | "none";
   isMultiWave?: boolean;
   parallaxImage?: string;
@@ -141,6 +172,7 @@ export const SectionWrapper = ({
   waveVariant,
   className,
   withDecorations = false,
+  sideDecorations = false,
   withWave = "none",
   isMultiWave = false,
   parallaxImage,
@@ -162,12 +194,15 @@ export const SectionWrapper = ({
     transparent: "bg-transparent",
   };
 
+  const hasWave = withWave === "top" || withWave === "bottom" || withWave === "both";
+
   return (
     <section
       ref={containerRef}
       id={id}
       className={cn(
-        "section-padding relative overflow-hidden",
+        "section-padding relative",
+        hasWave ? "overflow-visible" : "overflow-hidden",
         bgStyles[variant],
         className,
       )}
@@ -181,9 +216,21 @@ export const SectionWrapper = ({
             <img
               src={parallaxImage}
               alt=""
-              className="h-full w-full object-cover opacity-20 grayscale hover:grayscale-0 transition-all duration-1000"
+              className={cn(
+                "h-full w-full object-cover transition-all duration-1000",
+                variant === "dark"
+                  ? "opacity-40 grayscale-[0.3] hover:grayscale-0 hover:opacity-50"
+                  : "opacity-20 grayscale hover:grayscale-0"
+              )}
             />
-            <div className="absolute inset-0 bg-background/80" />
+            <div
+              className={cn(
+                "absolute inset-0",
+                variant === "dark"
+                  ? "bg-gradient-to-b from-black/75 via-[hsl(var(--dark-accent)/0.88)] to-black/75"
+                  : "bg-background/80"
+              )}
+            />
           </motion.div>
         </div>
       )}
@@ -196,6 +243,9 @@ export const SectionWrapper = ({
         />
       )}
 
+      {(withDecorations || sideDecorations) && (
+        <SideFloralBorders variant={variant === "dark" ? "dark" : "light"} />
+      )}
       {withDecorations && (
         <>
           <FloatingPetals
@@ -356,18 +406,41 @@ export const AlternatingGrid = ({
 export const OrnateTitle = ({
   title,
   accent,
+  variant = "light",
 }: {
   title: string;
   accent?: string;
-}) => (
-  <div className="mb-16 text-center">
-    {accent && <p className="font-accent text-2xl text-wine mb-2">{accent}</p>}
-    <h2 className="font-heading text-4xl md:text-6xl font-heavy text-foreground tracking-tight mb-8">
-      {title}
-    </h2>
-    <FloralDivider variant="wine" />
-  </div>
-);
+  variant?: "light" | "dark";
+}) => {
+  const isDark = variant === "dark";
+  return (
+    <div className="mb-16 text-center">
+      {accent && (
+        <p
+          className={cn(
+            "font-accent text-2xl mb-2",
+            isDark
+              ? "text-champagne-light [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]"
+              : "text-wine"
+          )}
+        >
+          {accent}
+        </p>
+      )}
+      <h2
+        className={cn(
+          "font-heading text-4xl md:text-6xl font-heavy tracking-tight mb-8",
+          isDark
+            ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]"
+            : "text-foreground"
+        )}
+      >
+        {title}
+      </h2>
+      <FloralDivider variant={isDark ? "gold" : "wine"} />
+    </div>
+  );
+};
 
 export const SimpleChecklist = ({
   items,
@@ -515,10 +588,10 @@ export function CreativeList({ items }: { items: string[] }) {
 export const HighlightCard = ({ icon: Icon, title, content }: any) => (
   <motion.div
     whileHover={{ y: -10, scale: 1.02 }}
-    className="relative rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group"
+    className="relative rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group h-full"
   >
-    <Tilt>
-      <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full">
+    <Tilt className="h-full">
+      <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col">
         <div className="mb-8 h-16 w-16 rounded-2xl bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
           <Icon className="h-8 w-8" />
         </div>

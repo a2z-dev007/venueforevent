@@ -392,3 +392,141 @@
 .premium-select-container {
   z-index: 50;
 }
+
+/* ── Luxury wedding design system (theme from this file only) ── */
+/* Cinematic & hero */
+.bg-cinematic-dark {
+  background: var(--gradient-dark);
+}
+.bg-cinematic-overlay {
+  background: linear-gradient(180deg, hsl(var(--dark-accent) / 0.85) 0%, hsl(var(--dark-2) / 0.6) 50%, transparent 100%);
+}
+.hero-overlay-romantic {
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, transparent 0%, hsl(var(--dark-2) / 0.7) 100%);
+}
+
+/* Rose-gold / champagne gradients */
+.bg-gradient-rosegold {
+  background: var(--gradient-rosegold);
+}
+.bg-gradient-romantic {
+  background: var(--gradient-romantic);
+}
+.bg-section-luxury {
+  background: linear-gradient(180deg, hsl(var(--ivory)) 0%, hsl(var(--blush-1)) 50%, hsl(var(--ivory)) 100%);
+}
+.bg-section-premium {
+  background: linear-gradient(135deg, hsl(var(--champagne-1)) 0%, hsl(var(--ivory)) 40%, hsl(var(--blush-1)) 100%);
+}
+
+/* Awwwards-style shadows (use CSS variables) */
+.shadow-luxury {
+  box-shadow: var(--shadow-luxury);
+}
+.shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+.shadow-awwwards {
+  box-shadow: 0 25px 80px -20px hsl(var(--wine) / 0.35), 0 0 0 1px hsl(var(--champagne) / 0.1);
+}
+
+/* Premium glass UI */
+.glass-premium {
+  background: hsl(var(--ivory) / 0.7);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid hsl(var(--champagne) / 0.25);
+  box-shadow: var(--shadow-soft);
+}
+.glass-premium-dark {
+  background: hsl(var(--dark-accent) / 0.5);
+  backdrop-filter: blur(24px);
+  border: 1px solid hsl(var(--champagne) / 0.15);
+}
+
+/* Gold shimmer button (performance-friendly) */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, hsl(var(--champagne-light) / 0.4) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-shimmer:hover::after {
+  transform: translateX(100%);
+}
+
+/* Premium typography scale */
+.text-display {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.text-hero {
+  font-size: clamp(3rem, 8vw + 1rem, 6rem);
+  font-family: var(--font-heading);
+  line-height: 1.05;
+}
+.text-section-title {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  font-family: var(--font-heading);
+}
+
+/* Section backgrounds (all from tokens) */
+.section-bg-ivory {
+  background-color: hsl(var(--ivory));
+}
+.section-bg-blush {
+  background-color: hsl(var(--blush-1));
+}
+.section-bg-champagne {
+  background-color: hsl(var(--champagne-1));
+}
+.section-bg-wine-subtle {
+  background-color: hsl(var(--wine-1));
+}
+.section-bg-dark {
+  background: var(--gradient-dark);
+  color: hsl(var(--wine-foreground));
+}
+
+/* Decorative animated elements */
+@keyframes shimmer-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+.animate-shimmer-slow {
+  animation: shimmer-slow 4s ease-in-out infinite;
+}
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: var(--shadow-soft); }
+  50% { box-shadow: var(--shadow-gold); }
+}
+.animate-gold-pulse {
+  animation: gold-pulse 3s ease-in-out infinite;
+}
+.deco-line-gold {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(var(--champagne)), transparent);
+  opacity: 0.6;
+}
+.deco-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--champagne));
+  opacity: 0.5;
+}
+
+.drop-shadow-luxury {
+  filter: drop-shadow(0 15px 40px hsl(var(--wine) / 0.25));
+}
