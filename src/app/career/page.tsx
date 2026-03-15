@@ -52,20 +52,20 @@ export default function CareersPage() {
       <SectionWrapper
         variant="ivory"
         withWave="none"
-        className="pt-16 pb-24 md:pt-24 md:pb-32 -mt-16 relative z-20 rounded-t-[3rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        className="pt-16 pb-24 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48 -mt-16 relative z-20 rounded-t-[3rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
-        <div className="max-w-7xl mx-auto px-3 md:px-6 relative">
+        <div className="max-w-7xl mx-auto px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto space-y-10"
+            className="text-center max-w-7xl mx-auto space-y-12 md:space-y-20"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-6xl font-heading font-heavy text-wine leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-heading font-heavy text-wine leading-[1.1] tracking-tight">
               At VenueForEvent.com, we’re not just building a venue listing
               platform.
             </h2>
-            <p className="text-base sm:text-lg md:text-3xl text-foreground font-medium italic leading-relaxed">
+            <p className="text-base sm:text-lg md:text-3xl lg:text-4xl text-foreground font-medium italic leading-relaxed max-w-5xl mx-auto">
               We’re building the infrastructure that powers weddings, corporate
               conferences, MICE programs, destination celebrations, product
               launches, gala dinners, and once-in-a-lifetime moments across
@@ -77,8 +77,8 @@ export default function CareersPage() {
               offsite resorts in Uttarakhand, we are connecting people to spaces
               where memories and milestones are created.
             </p>
-            <div className="inline-block p-1 rounded-[2rem] md:rounded-full bg-gradient-to-r from-wine via-champagne to-wine bg-[length:200%_auto] animate-gradient">
-              <div className="px-6 py-4 md:px-8 md:py-4 rounded-[2rem] md:rounded-full bg-ivory text-wine font-bold text-[11px] md:text-xl uppercase tracking-wider md:tracking-widest shadow-inner leading-relaxed">
+            <div className="inline-block p-1 rounded-[2rem] md:rounded-full bg-gradient-to-r from-wine via-champagne to-wine bg-[length:200%_auto] animate-gradient shadow-2xl">
+              <div className="px-6 py-4 md:px-12 md:py-6 rounded-[2rem] md:rounded-full bg-ivory text-wine font-bold text-[10px] md:text-base lg:text-xl uppercase tracking-[0.2em] shadow-inner leading-relaxed">
                 If you believe in hospitality, technology, innovation, and
                 growth — you’ll feel at home here.
               </div>
