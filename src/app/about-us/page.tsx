@@ -69,14 +69,14 @@ export default function AboutUsPage() {
         sideDecorations
         className="pt-12 md:pt-24 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
-        <ContentBlock align="center" accent="Welcome to VenueForEvent.com">
-          <p className="text-3xl leading-relaxed text-wine font-heading mb-10 italic">
+        <ContentBlock align="center" width="full" accent="Welcome to VenueForEvent.com">
+          <p className="text-3xl leading-relaxed text-wine font-heading mb-10 italic lg:max-w-5xl xl:max-w-6xl mx-auto">
             Every unforgettable celebration begins with a space. A space where
             vows are exchanged. A space where ideas are launched. A space where
             families reunite, teams collaborate, and milestones are remembered
             for a lifetime.
           </p>
-          <div className="prose prose-xl text-muted-foreground max-w-4xl mx-auto text-center italic space-y-8">
+          <div className="prose prose-xl text-muted-foreground max-w-4xl lg:max-w-5xl xl:max-w-none mx-auto text-center italic space-y-8">
             <p>
               VenueForEvent.com was created to simplify one of the most
               important decisions in event planning — choosing the right venue.

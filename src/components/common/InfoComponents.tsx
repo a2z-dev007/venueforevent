@@ -278,9 +278,10 @@ interface ContentBlockProps {
   subtitle?: string;
   accent?: string;
   children?: React.ReactNode;
-  align?: "center" | "left" | "right";
+  align?: "center" | "left" | "right" | "mobile-center";
   width?: "prose" | "full" | "medium";
   className?: string;
+  variant?: "light" | "dark";
 }
 
 export const SubTitle = ({
@@ -303,12 +304,15 @@ export const ContentBlock = ({
   align = "left",
   width = "prose",
   className,
+  variant = "light",
 }: ContentBlockProps) => {
+  const isDark = variant === "dark";
   const alignStyles = {
     center: "text-center mx-auto items-center",
     left: "text-left items-start",
     right: "text-right items-end",
-    "mobile-center": "text-center mx-auto items-center lg:text-left lg:mx-0 lg:items-start",
+    "mobile-center":
+      "text-center mx-auto items-center lg:text-left lg:mx-0 lg:items-start",
   };
 
   const widthStyles = {
@@ -330,14 +334,35 @@ export const ContentBlock = ({
       )}
     >
       {accent && (
-        <p className="font-accent text-2xl text-wine mb-2">{accent}</p>
+        <p
+          className={cn(
+            "font-accent text-2xl mb-2",
+            isDark ? "text-champagne-light" : "text-wine",
+          )}
+        >
+          {accent}
+        </p>
       )}
       {title && (
-        <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">
+        <h2
+          className={cn(
+            "font-heading text-3xl md:text-5xl font-bold mb-4",
+            isDark ? "text-white" : "text-foreground",
+          )}
+        >
           {title}
         </h2>
       )}
-      {subtitle && <p className="text-lg mb-8 italic opacity-80">{subtitle}</p>}
+      {subtitle && (
+        <p
+          className={cn(
+            "text-lg mb-8 italic opacity-80",
+            isDark ? "text-white/80" : "text-muted-foreground",
+          )}
+        >
+          {subtitle}
+        </p>
+      )}
       <div className="w-full">{children}</div>
     </motion.div>
   );
@@ -377,7 +402,9 @@ export const AlternatingGrid = ({
               </div>
             )}
             {item.title && (
-              <h3 className="font-heading text-2xl md:text-3xl font-bold">{item.title}</h3>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold">
+                {item.title}
+              </h3>
             )}
             <div className="prose prose-base md:prose-lg text-muted-foreground leading-relaxed w-full">
               {item.text}
@@ -431,7 +458,7 @@ export const OrnateTitle = ({
       )}
       <h2
         className={cn(
-          "font-heading text-4xl md:text-6xl font-heavy tracking-tight mb-8",
+          "font-heading text-3xl md:text-6xl font-heavy tracking-tight mb-8",
           isDark
             ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]"
             : "text-foreground",
@@ -447,58 +474,77 @@ export const OrnateTitle = ({
 export const SimpleChecklist = ({
   items,
   columns = 2,
+  variant = "light",
 }: {
   items: string[];
   columns?: 1 | 2 | 3;
-}) => (
-  <ul
-    className={cn(
-      "grid gap-4",
-      columns === 1
-        ? "grid-cols-1"
-        : columns === 2
-          ? "grid-cols-1 md:grid-cols-2"
-          : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-    )}
-  >
-    {items.map((item, i) => (
-      <motion.li
-        key={i}
-        initial={{ opacity: 0, x: -10 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.05 }}
-        className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-3 group"
-      >
-        <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-champagne/20 text-champagne group-hover:bg-wine group-hover:text-white transition-all duration-300 shadow-sm border border-champagne/10">
-          <svg
-            className="h-3 w-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+  variant?: "light" | "dark";
+}) => {
+  const isDark = variant === "dark";
+  return (
+    <ul
+      className={cn(
+        "grid gap-4",
+        columns === 1
+          ? "grid-cols-1"
+          : columns === 2
+            ? "grid-cols-1 md:grid-cols-2"
+            : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+      )}
+    >
+      {items.map((item, i) => (
+        <motion.li
+          key={i}
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.05 }}
+          className="flex items-start justify-start text-left gap-4 group"
+        >
+          <div
+            className={cn(
+              "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-all duration-300 shadow-sm border",
+              isDark
+                ? "bg-white/10 text-champagne border-white/20 group-hover:bg-champagne group-hover:text-dark-accent"
+                : "bg-champagne/20 text-champagne border-champagne/10 group-hover:bg-wine group-hover:text-white",
+            )}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={3}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <span className="leading-relaxed group-hover:text-wine transition-colors text-sm opacity-80 group-hover:opacity-100 font-medium">
-          {item}
-        </span>
-      </motion.li>
-    ))}
-  </ul>
-);
+            <svg
+              className="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <span
+            className={cn(
+              "leading-relaxed transition-colors text-sm font-medium",
+              isDark
+                ? "text-white/70 group-hover:text-champagne"
+                : "text-muted-foreground group-hover:text-wine",
+            )}
+          >
+            {item}
+          </span>
+        </motion.li>
+      ))}
+    </ul>
+  );
+};
 
 export const StepGrid = ({
   steps,
 }: {
   steps: { title: string; desc: string; icon: LucideIcon }[];
 }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+  <div className="flex flex-wrap justify-center gap-8">
     {steps.map((step, i) => (
       <motion.div
         key={i}
@@ -507,7 +553,7 @@ export const StepGrid = ({
         viewport={{ once: true }}
         transition={{ delay: i * 0.1 }}
         whileHover={{ y: -8 }}
-        className="relative rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group"
+        className="relative w-full sm:w-[320px] rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group"
       >
         <Tilt>
           <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full">

@@ -258,7 +258,7 @@ export default function ContactPage() {
 
       {/* Final CTA */}
       <SectionWrapper variant="dark" withDecorations className="section-bg-dark">
-        <ContentBlock align="center" title="Final Call to Action" accent="Your event deserves the right venue" className="text-white">
+        <ContentBlock align="center" title="Final Call to Action" accent="Your event deserves the right venue" variant="dark">
           <p className="text-white/90 italic mb-10">Whether it&apos;s: A royal wedding in Rajasthan • A beach ceremony in Goa • A mountain celebration in Manali • A leadership summit in New Delhi • A corporate offsite in Himachal Pradesh • A gala dinner in Mumbai</p>
           <p className="text-2xl font-heading text-champagne mb-12">Your event deserves the right venue.</p>
           <div className="flex flex-wrap justify-center gap-6">
