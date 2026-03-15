@@ -194,7 +194,8 @@ export const SectionWrapper = ({
     transparent: "bg-transparent",
   };
 
-  const hasWave = withWave === "top" || withWave === "bottom" || withWave === "both";
+  const hasWave =
+    withWave === "top" || withWave === "bottom" || withWave === "both";
 
   return (
     <section
@@ -220,7 +221,7 @@ export const SectionWrapper = ({
                 "h-full w-full object-cover transition-all duration-1000",
                 variant === "dark"
                   ? "opacity-40 grayscale-[0.3] hover:grayscale-0 hover:opacity-50"
-                  : "opacity-20 grayscale hover:grayscale-0"
+                  : "opacity-20 grayscale hover:grayscale-0",
               )}
             />
             <div
@@ -228,7 +229,7 @@ export const SectionWrapper = ({
                 "absolute inset-0",
                 variant === "dark"
                   ? "bg-gradient-to-b from-black/75 via-[hsl(var(--dark-accent)/0.88)] to-black/75"
-                  : "bg-background/80"
+                  : "bg-background/80",
               )}
             />
           </motion.div>
@@ -307,6 +308,7 @@ export const ContentBlock = ({
     center: "text-center mx-auto items-center",
     left: "text-left items-start",
     right: "text-right items-end",
+    "mobile-center": "text-center mx-auto items-center lg:text-left lg:mx-0 lg:items-start",
   };
 
   const widthStyles = {
@@ -364,20 +366,20 @@ export const AlternatingGrid = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className={cn(
-            "flex flex-col lg:flex-row items-center gap-12 lg:gap-20",
+            "flex flex-col lg:flex-row items-center gap-12 lg:gap-14 xl:gap-24",
             i % 2 !== 0 && "lg:flex-row-reverse",
           )}
         >
-          <div className="lg:w-1/2 space-y-6">
+          <div className="lg:w-1/2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
             {item.icon && (
               <div className="h-14 w-14 rounded-2xl bg-wine/5 text-wine flex items-center justify-center mb-6">
                 <item.icon className="h-7 w-7" />
               </div>
             )}
             {item.title && (
-              <h3 className="font-heading text-3xl font-bold">{item.title}</h3>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold">{item.title}</h3>
             )}
-            <div className="prose prose-lg text-muted-foreground leading-relaxed">
+            <div className="prose prose-base md:prose-lg text-muted-foreground leading-relaxed w-full">
               {item.text}
             </div>
           </div>
@@ -414,14 +416,14 @@ export const OrnateTitle = ({
 }) => {
   const isDark = variant === "dark";
   return (
-    <div className="mb-16 text-center">
+    <div className="mb-10 md:mb-16 text-center">
       {accent && (
         <p
           className={cn(
             "font-accent text-2xl mb-2",
             isDark
               ? "text-champagne-light [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]"
-              : "text-wine"
+              : "text-wine",
           )}
         >
           {accent}
@@ -432,7 +434,7 @@ export const OrnateTitle = ({
           "font-heading text-4xl md:text-6xl font-heavy tracking-tight mb-8",
           isDark
             ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]"
-            : "text-foreground"
+            : "text-foreground",
         )}
       >
         {title}
@@ -466,7 +468,7 @@ export const SimpleChecklist = ({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: i * 0.05 }}
-        className="flex items-start gap-3 group"
+        className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-3 group"
       >
         <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-champagne/20 text-champagne group-hover:bg-wine group-hover:text-white transition-all duration-300 shadow-sm border border-champagne/10">
           <svg
@@ -509,8 +511,8 @@ export const StepGrid = ({
       >
         <Tilt>
           <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full">
-            <div className="absolute top-8 right-8 text-8xl font-black text-champagne/5 group-hover:text-wine/10 transition-colors pointer-events-none">
-              0{i + 1}
+            <div className="absolute top-6 right-8 text-7xl font-black text-champagne/5 group-hover:text-wine/10 transition-colors pointer-events-none">
+              {i + 1}
             </div>
             <div className="relative z-10 flex flex-col items-center text-center">
               <div className="h-20 w-20 rounded-3xl bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10">
@@ -591,7 +593,7 @@ export const HighlightCard = ({ icon: Icon, title, content }: any) => (
     className="relative rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group h-full"
   >
     <Tilt className="h-full">
-      <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col">
+      <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col items-center text-center">
         <div className="mb-8 h-16 w-16 rounded-2xl bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
           <Icon className="h-8 w-8" />
         </div>

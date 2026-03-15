@@ -23,6 +23,8 @@ import {
   History,
 } from "lucide-react";
 import brandStoryHero from "@/assets/brand-story-hero.png";
+import parallax1 from "@/assets/celebration.jpg";
+import parallax2 from "@/assets/banquet-hall.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SideFloral from "@/components/pages-components/home/SideFloral";
 import Link from "next/link";
@@ -195,7 +197,7 @@ export default function BrandStoryPage() {
         <SectionWrapper
           variant="white"
           className="py-28 md:py-36 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
-          parallaxImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+          parallaxImage={parallax1.src}
         >
           <OrnateTitle title="Our Mission" accent="Transforming Discovery" />
           <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
@@ -337,7 +339,7 @@ export default function BrandStoryPage() {
         <SectionWrapper
           variant="white"
           className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
-          parallaxImage="https://images.unsplash.com/photo-1540575861501-7ce0e1d1aa2b?q=80&w=2070&auto=format&fit=crop"
+          parallaxImage={parallax2.src}
         >
           <OrnateTitle title="Building Trust in the Event Industry" accent="Foundation of Every Celebration" />
           <div className="max-w-4xl mx-auto space-y-10 relative z-10">

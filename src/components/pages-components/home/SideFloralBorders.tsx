@@ -23,12 +23,12 @@ function FloralsColumn({
   const fillLeaf = isDark ? "hsl(var(--champagne) / 0.15)" : "hsl(var(--champagne) / 0.2)";
 
   const positions = [
-    { top: "5%", scale: 0.7, delay: 0 },
-    { top: "22%", scale: 1, delay: 0.3 },
-    { top: "38%", scale: 0.85, delay: 0.1 },
+    { top: "12%", scale: 0.7, delay: 0 },
+    { top: "25%", scale: 1, delay: 0.3 },
+    { top: "40%", scale: 0.85, delay: 0.1 },
     { top: "55%", scale: 0.9, delay: 0.5 },
-    { top: "72%", scale: 0.75, delay: 0.2 },
-    { top: "88%", scale: 0.8, delay: 0.4 },
+    { top: "70%", scale: 0.75, delay: 0.2 },
+    { top: "85%", scale: 0.8, delay: 0.4 },
   ];
 
   return (

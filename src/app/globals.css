@@ -37,10 +37,10 @@
 
     /* Responsive Section Spacing Configuration */
     --section-padding-x-mobile: 1.5rem;   /* 24px (px-6) */
-    --section-padding-y-mobile: 5rem;     /* 80px (py-20) */
+    --section-padding-y-mobile: 3rem;     /* 48px (py-12) */
     
-    --section-padding-x-tablet: 3rem;     /* 48px (px-12) */
-    --section-padding-y-tablet: 6rem;     /* 96px (py-24) */
+    --section-padding-x-laptop: 3rem;     /* 48px (px-12) */
+    --section-padding-y-laptop: 6rem;     /* 96px (py-24) */
     
     --section-padding-x-desktop: 5rem;    /* 80px (px-20) */
     --section-padding-y-desktop: 8rem;    /* 128px (py-32) */
@@ -241,6 +241,16 @@
   }
 
   @media (min-width: 1024px) {
+    .section-padding {
+      padding: var(--section-padding-y-laptop) var(--section-padding-x-laptop);
+    }
+    .section-px {
+      padding-left: var(--section-padding-x-laptop);
+      padding-right: var(--section-padding-x-laptop);
+    }
+  }
+
+  @media (min-width: 1280px) {
     .section-padding {
       padding: var(--section-padding-y-desktop) var(--section-padding-x-desktop);
     }

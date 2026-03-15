@@ -146,7 +146,7 @@ export default function InfoPageLayout({
           </motion.div>
         </motion.div>
 
-        <HeroCurveDivider variant="ivory" />
+        {!hideWave && <HeroCurveDivider variant="ivory" />}
       </section>
 
       <main className="relative z-10 w-full">{children}</main>

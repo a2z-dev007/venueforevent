@@ -44,6 +44,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import aboutUsHero from "@/assets/about-us-hero.png";
+import socialImg from "@/assets/palace-wedding.jpg";
+import corporateImg from "@/assets/banquet-hall.jpg";
+import parallax1 from "@/assets/celebration.jpg";
+import parallax2 from "@/assets/hero-venue.jpg";
+import parallax3 from "@/assets/celebration-sparklers.jpg";
+import corporateAnalysisImg from "@/assets/banquet-hall.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -61,7 +67,7 @@ export default function AboutUsPage() {
         variant="ivory"
         withDecorations
         sideDecorations
-        className="pt-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        className="pt-12 md:pt-24 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
         <ContentBlock align="center" accent="Welcome to VenueForEvent.com">
           <p className="text-3xl leading-relaxed text-wine font-heading mb-10 italic">
@@ -86,13 +92,13 @@ export default function AboutUsPage() {
         </ContentBlock>
 
         <Tilt className="mt-20">
-          <div className="bg-white/60 backdrop-blur-xl p-12 md:p-20 rounded-[5rem] border border-white/40 shadow-luxury relative overflow-hidden group">
+          <div className="bg-white/60 backdrop-blur-xl px-6 py-10 md:p-20 rounded-[2.5rem] md:rounded-[5rem] border border-white/40 shadow-luxury relative overflow-hidden group">
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-wine/5 rounded-full blur-[100px] group-hover:bg-wine/10 transition-all duration-700" />
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-              <div className="h-24 w-24 flex-shrink-0 rounded-[2.5rem] bg-wine text-white flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform duration-500">
-                <Building2 className="h-12 w-12" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 text-center md:text-left">
+              <div className="h-20 w-20 md:h-24 md:w-24 flex-shrink-0 rounded-[2rem] md:rounded-[2.5rem] bg-wine text-white flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                <Building2 className="h-10 w-10 md:h-12 md:w-12" />
               </div>
-              <div className="text-xl md:text-2xl font-medium leading-relaxed italic text-foreground/90 leading-snug">
+              <div className="text-lg md:text-2xl font-medium italic text-foreground/90 leading-snug">
                 "We are proud to be a part of Spodia, and operated under our
                 parent company,{" "}
                 <span className="text-wine font-bold">
@@ -115,7 +121,11 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Company Overview Section */}
-      <SectionWrapper variant="white" className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
+      <SectionWrapper
+        variant="white"
+        className="py-12 md:py-24 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        sideDecorations
+      >
         <OrnateTitle title="Company Overview" accent="Legal & Structure" />
         <div className="mb-24">
           <StepGrid
@@ -153,11 +163,11 @@ export default function AboutUsPage() {
             className="group h-full"
           >
             <Tilt className="h-full">
-              <div className="bg-ivory/50 p-12 rounded-[4rem] border border-champagne/20 shadow-inner relative h-full">
-                <div className="absolute top-10 right-10 text-champagne/10">
+              <div className="bg-ivory/50 p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] border border-champagne/20 shadow-inner relative h-full flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div className="absolute top-10 right-10 text-champagne/10 hidden md:block">
                   <History size={100} />
                 </div>
-                <p className="text-xl leading-relaxed text-muted-foreground relative z-10 italic">
+                <p className="text-lg md:text-xl leading-relaxed text-muted-foreground relative z-10 italic">
                   Homocation Asia Private Limited was founded with the vision of
                   creating integrated digital ecosystems in hospitality and
                   event discovery. Through Spodia, we built a strong foundation
@@ -174,11 +184,11 @@ export default function AboutUsPage() {
             className="group h-full"
           >
             <Tilt className="h-full">
-              <div className="bg-wine/5 p-12 rounded-[4rem] border border-wine/10 shadow-inner relative h-full">
-                <div className="absolute top-10 right-10 text-wine/10">
+              <div className="bg-wine/5 p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] border border-wine/10 shadow-inner relative h-full flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div className="absolute top-10 right-10 text-wine/10 hidden md:block">
                   <TrendingUp size={100} />
                 </div>
-                <p className="text-xl leading-relaxed text-muted-foreground relative z-10 italic">
+                <p className="text-lg md:text-xl leading-relaxed text-muted-foreground relative z-10 italic">
                   VenueForEvent.com extends that foundation into the rapidly
                   growing social and corporate events industry — a
                   multi-billion-dollar sector across India and neighboring
@@ -217,7 +227,7 @@ export default function AboutUsPage() {
         variant="ivory"
         withDecorations
         sideDecorations
-        className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        className="py-12 md:py-24 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         id="story"
       >
         <OrnateTitle title="Our Story" accent="A Journey of Vision" />
@@ -268,7 +278,7 @@ export default function AboutUsPage() {
               className="group h-full"
             >
               <Tilt className="h-full">
-                <div className="p-10 rounded-[4rem] bg-white border border-champagne/10 shadow-sm hover:shadow-2xl transition-all text-center h-full">
+                <div className="p-8 md:p-10 rounded-[2.5rem] md:rounded-[4rem] bg-white border border-champagne/10 shadow-sm hover:shadow-2xl transition-all text-center h-full">
                   <div className="h-20 w-20 mx-auto rounded-3xl bg-ivory text-wine flex items-center justify-center mb-8 group-hover:bg-wine group-hover:text-white transition-all transform group-hover:rotate-12">
                     <item.icon size={32} />
                   </div>
@@ -291,16 +301,16 @@ export default function AboutUsPage() {
             opportunity.
           </p>
           <Tilt>
-            <div className="p-16 md:p-24 rounded-[5rem] bg-dark-accent text-white shadow-[0_40px_100px_rgba(0,0,0,0.4)] relative overflow-hidden group border border-white/10">
+            <div className="px-6 py-12 md:p-24 rounded-[2.5rem] md:rounded-[5rem] bg-dark-accent text-white shadow-[0_40px_100px_rgba(0,0,0,0.4)] relative overflow-hidden group border border-white/10">
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-wine opacity-20 blur-[150px] rounded-full group-hover:opacity-30 transition-all duration-1000" />
-              <div className="relative z-10 text-center space-y-12">
-                <p className="text-3xl md:text-4xl font-heading text-champagne-gold leading-relaxed">
+              <div className="relative z-10 text-center space-y-8 md:space-y-12">
+                <p className="text-xl md:text-4xl font-heading text-champagne-gold leading-relaxed">
                   By leveraging Spodia’s hospitality technology backbone, we
                   envisioned a unified, structured, inquiry-driven venue
                   marketplace — where individuals, families, and corporations
                   can explore, compare, and connect with venues seamlessly.
                 </p>
-                <h4 className="font-accent text-5xl md:text-7xl text-white drop-shadow-luxury">
+                <h4 className="font-accent text-3xl md:text-7xl text-white drop-shadow-luxury leading-tight">
                   That vision became VenueForEvent.com.
                 </h4>
               </div>
@@ -312,8 +322,8 @@ export default function AboutUsPage() {
       {/* Mission & Vision */}
       <SectionWrapper
         variant="white"
-        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
-        parallaxImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        parallaxImage={parallax1.src}
         sideDecorations
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-stretch">
@@ -323,13 +333,19 @@ export default function AboutUsPage() {
             viewport={{ once: true }}
             className="space-y-10 h-full flex flex-col"
           >
-            <ContentBlock title="Our Mission" accent="The Purpose" width="full" className="flex-1 flex flex-col">
-              <p className="text-2xl leading-relaxed text-muted-foreground mb-12 italic">
+            <ContentBlock
+              title="Our Mission"
+              accent="The Purpose"
+              width="full"
+              align="mobile-center"
+              className="flex-1 flex flex-col"
+            >
+              <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground mb-12 italic text-center lg:text-left">
                 To simplify venue discovery and event planning across India and
                 South Asia through a technology-driven, transparent, and
                 user-centric marketplace.
               </p>
-              <SubTitle className="text-wine text-3xl">
+              <SubTitle className="text-wine text-xl md:text-3xl text-center lg:text-left">
                 We aim to empower:
               </SubTitle>
               <SimpleChecklist
@@ -340,7 +356,7 @@ export default function AboutUsPage() {
                   "Event professionals seeking structured venue access",
                 ]}
               />
-              <p className="mt-12 text-xl text-muted-foreground italic font-medium border-l-8 border-wine/20 pl-8">
+              <p className="mt-12 text-base md:text-xl text-muted-foreground italic font-medium border-l-8 border-wine/20 pl-8 text-center lg:text-left">
                 From searching for destination wedding cost in Jaipur to booking
                 business meeting rooms in Mumbai, our mission is to make the
                 process effortless and inspiring.
@@ -354,25 +370,32 @@ export default function AboutUsPage() {
             viewport={{ once: true }}
             className="space-y-10 h-full flex flex-col"
           >
-            <ContentBlock title="Our Vision" accent="The Future" width="full" className="flex-1 flex flex-col">
-              <p className="text-2xl leading-relaxed text-muted-foreground mb-12 italic">
+            <ContentBlock
+              title="Our Vision"
+              accent="The Future"
+              width="full"
+              align="mobile-center"
+              className="flex-1 flex flex-col"
+            >
+              <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground mb-12 italic text-center lg:text-left">
                 To become South Asia’s most trusted and scalable venue
                 marketplace — known for quality listings, transparent
                 communication, and premium user experience.
               </p>
-              <SubTitle className="text-wine text-3xl">
-                We envision a future where:
+              <SubTitle className="text-wine text-xl md:text-3xl text-center lg:text-left">
+                Core Strategies:
               </SubTitle>
               <SimpleChecklist
                 items={[
-                  "A bride can easily compare outdoor wedding lawns in Dehradun",
-                  "A CEO can shortlist large capacity auditoriums in Bengaluru",
-                  "A startup can plan a product launch venue in New Delhi",
-                  "A family can explore riverside wedding spots in Rishikesh",
+                  "Standardizing fragmented event data",
+                  "Integrating AI for hyper-local discovery",
+                  "Empowering venue owners with tech tools",
+                  "Expanding footprint across all SAARC nations",
                 ]}
               />
-              <p className="mt-12 text-xl text-muted-foreground italic font-medium border-l-8 border-wine/20 pl-8">
-                All within one intelligent platform.
+              <p className="mt-12 text-base md:text-xl text-muted-foreground italic font-medium border-l-8 border-wine/20 pl-8 text-center lg:text-left">
+                "Our vision is to bridge the gap between people and the spaces
+                they need, creating meaningful connections along the way."
               </p>
             </ContentBlock>
           </motion.div>
@@ -382,12 +405,16 @@ export default function AboutUsPage() {
       {/* Core Values */}
       <SectionWrapper
         variant="dark"
-        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
         withDecorations
         sideDecorations
       >
-        <OrnateTitle title="Our Core Values" accent="The Pillars of Trust" variant="dark" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
+        <OrnateTitle
+          title="Our Core Values"
+          accent="The Pillars of Trust"
+          variant="dark"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 xl:gap-12 items-stretch">
           {[
             {
               num: "01",
@@ -429,17 +456,17 @@ export default function AboutUsPage() {
               className="group h-full"
             >
               <Tilt className="h-full">
-                <div className="p-12 rounded-[4rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group relative overflow-hidden h-full">
-                  <div className="absolute -top-6 -right-6 text-9xl font-black text-white/5 select-none transition-colors group-hover:text-white/10">
-                    {v.num}
+                <div className="p-8 lg:px-6 lg:py-10 xl:p-12 rounded-[3.5rem] md:rounded-[4rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group relative overflow-hidden h-full flex flex-col items-center text-center">
+                  <div className="absolute top-6 right-8 text-7xl font-black text-white/5 select-none transition-colors group-hover:text-white/10">
+                    {i + 1}
                   </div>
-                  <div className="h-20 w-20 rounded-3xl bg-white/10 text-champagne flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                    <v.icon className="h-10 w-10" />
+                  <div className="h-16 w-16 md:h-18 md:w-18 lg:h-20 lg:w-20 rounded-[2rem] md:rounded-3xl bg-white/10 text-champagne flex items-center justify-center mb-8 lg:mb-10 shadow-inner group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                    <v.icon className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10" />
                   </div>
-                  <h4 className="font-heading text-3xl font-bold mb-6 text-white">
+                  <h4 className="font-heading text-2xl xl:text-3xl font-bold mb-4 md:mb-6 text-white leading-tight">
                     {v.title}
                   </h4>
-                  <p className="text-lg text-white/70 leading-relaxed italic">
+                  <p className="text-sm lg:text-[15px] xl:text-lg text-white/70 leading-relaxed italic">
                     {v.desc}
                   </p>
                 </div>
@@ -452,8 +479,8 @@ export default function AboutUsPage() {
       {/* Geographic Strength */}
       <SectionWrapper
         variant="white"
-        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
-        parallaxImage="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        parallaxImage={parallax2.src}
         sideDecorations
       >
         <OrnateTitle
@@ -468,15 +495,15 @@ export default function AboutUsPage() {
           {/* Section 1: Hill Stations */}
           <div className="space-y-16">
             <Tilt>
-              <div className="bg-wine/5 backdrop-blur-md p-16 md:p-24 rounded-[5rem] border border-wine/10 relative overflow-hidden group">
+              <div className="bg-wine/5 backdrop-blur-md p-8 md:p-24 rounded-[3.5rem] md:rounded-[5rem] border border-wine/10 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-16 opacity-5 group-hover:opacity-10 transition-opacity">
                   <Mountain size={150} />
                 </div>
-                <h4 className="font-heading text-4xl font-bold text-wine mb-12 flex items-center gap-6">
-                  <Mountain className="h-10 w-10" /> Hill Stations & Scenic
+                <h4 className="font-heading text-2xl md:text-4xl font-bold text-wine mb-12 flex flex-col md:flex-row items-center text-center md:text-left gap-4 md:gap-6">
+                  <Mountain className="h-10 w-10 flex-shrink-0" /> Hill Stations & Scenic
                   Destinations
                 </h4>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8">
                   {[
                     "Mussoorie",
                     "Shimla",
@@ -492,13 +519,13 @@ export default function AboutUsPage() {
                     <motion.div
                       key={city}
                       whileHover={{ y: -10, scale: 1.1 }}
-                      className="py-6 px-4 rounded-[2rem] bg-white border border-champagne/20 text-center text-base font-bold shadow-sm hover:text-wine hover:shadow-2xl transition-all cursor-default"
+                      className="py-4 md:py-6 px-3 md:px-4 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-champagne/20 text-center text-sm md:text-base font-bold shadow-sm hover:text-wine hover:shadow-2xl transition-all cursor-default flex items-center justify-center h-full"
                     >
                       {city}
                     </motion.div>
                   ))}
                 </div>
-                <p className="mt-16 text-2xl text-muted-foreground italic font-medium leading-relaxed max-w-5xl">
+                <p className="mt-16 text-lg md:text-2xl text-muted-foreground italic font-medium leading-relaxed max-w-5xl text-center md:text-left mx-auto">
                   Imagine planning a pre-wedding shoot location in Manali,
                   hosting a ceremony in a luxury villa for wedding in Coorg, or
                   choosing an intimate wedding venue in Dalhousie. We bring
@@ -518,12 +545,12 @@ export default function AboutUsPage() {
               className="group h-full"
             >
               <Tilt className="h-full">
-                <div className="p-16 rounded-[5rem] bg-dark-accent text-white shadow-2xl relative overflow-hidden h-full flex flex-col border border-white/10">
+                <div className="p-8 lg:p-10 xl:p-16 rounded-[3.5rem] md:rounded-[5rem] bg-dark-accent text-white shadow-2xl relative overflow-hidden h-full flex flex-col border border-white/10 items-center md:items-start text-center md:text-left">
                   <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-wine opacity-10 blur-3xl rounded-full" />
-                  <h4 className="font-heading text-4xl font-bold text-champagne mb-12 flex items-center gap-6">
-                    <Building2 className="h-10 w-10" /> Metros & Emerging Cities
+                  <h4 className="font-heading text-3xl md:text-4xl font-bold text-champagne mb-8 md:mb-12 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                    <Building2 className="h-10 w-10 shrink-0" /> Metros & Emerging Cities
                   </h4>
-                  <div className="grid grid-cols-2 gap-8 mb-12">
+                  <div className="grid grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-4 md:gap-8 mb-12 w-full">
                     {[
                       "New Delhi",
                       "Mumbai",
@@ -537,14 +564,14 @@ export default function AboutUsPage() {
                     ].map((c) => (
                       <span
                         key={c}
-                        className="text-lg font-bold text-white/80 hover:text-champagne transition-colors flex items-center gap-3"
+                        className="text-base md:text-lg font-bold text-white/80 hover:text-champagne transition-colors flex items-center justify-center lg:justify-start gap-3"
                       >
-                        <span className="h-1.5 w-1.5 bg-champagne rounded-full" />{" "}
+                        <span className="h-1.5 w-1.5 bg-champagne rounded-full shrink-0" />{" "}
                         {c}
                       </span>
                     ))}
                   </div>
-                  <div className="space-y-6 border-t border-white/10 pt-10 opacity-80 italic text-base">
+                  <div className="space-y-6 border-t border-white/10 pt-10 opacity-80 italic text-base flex flex-col items-center lg:items-start text-center lg:text-left">
                     <p className="font-bold text-champagne uppercase tracking-[0.2em] text-xs mb-6">
                       Celebration & Corporate Focus:
                     </p>
@@ -571,12 +598,12 @@ export default function AboutUsPage() {
               className="group h-full"
             >
               <Tilt className="h-full">
-                <div className="p-16 rounded-[5rem] bg-ivory/80 backdrop-blur-md border border-wine/10 shadow-2xl relative overflow-hidden h-full flex flex-col">
-                  <div className="absolute -top-10 -right-10 w-80 h-80 bg-champagne/10 blur-3xl rounded-full" />
-                  <h4 className="font-heading text-4xl font-bold text-wine mb-12 flex items-center gap-6">
-                    <Globe className="h-10 w-10" /> State-Wide Coverage
+                <div className="px-4 py-10 lg:p-10 xl:p-16 rounded-[3rem] md:rounded-[5rem] bg-ivory/80 backdrop-blur-md border border-wine/10 shadow-2xl relative overflow-hidden h-full flex flex-col items-center text-center">
+                  <div className="absolute -top-10 -right-10 w-60 h-60 md:w-80 md:h-80 bg-champagne/10 blur-3xl rounded-full" />
+                  <h4 className="font-heading text-2xl md:text-4xl font-bold text-wine mb-8 md:mb-12 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                    <Globe className="h-10 w-10 flex-shrink-0" /> State-Wide Coverage
                   </h4>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-10">
+                  <div className="grid grid-cols-2 xl:grid-cols-3 gap-y-4 md:gap-y-6 gap-x-4 lg:gap-x-6 xl:gap-x-10 w-full">
                     {[
                       "Rajasthan",
                       "Goa",
@@ -596,14 +623,14 @@ export default function AboutUsPage() {
                     ].map((s) => (
                       <div
                         key={s}
-                        className="flex items-center gap-4 text-base font-bold text-muted-foreground group/item hover:text-wine transition-colors"
+                        className="flex items-start gap-2 md:gap-4 text-[11px] min-[360px]:text-xs lg:text-sm xl:text-base font-bold text-muted-foreground group/item hover:text-wine transition-colors text-left"
                       >
-                        <div className="h-3 w-3 bg-wine/20 rounded-full group-hover/item:bg-wine group-hover/item:scale-150 transition-all" />{" "}
-                        {s}
+                        <div className="h-1.5 w-1.5 md:h-3 md:w-3 bg-wine/20 rounded-full group-hover/item:bg-wine group-hover/item:scale-150 transition-all flex-shrink-0 mt-1.5 md:mt-1" />
+                        <span className="leading-tight">{s}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-16 p-10 rounded-[3rem] bg-white shadow-inner border border-wine/5 italic text-muted-foreground text-lg font-medium leading-relaxed">
+                  <div className="mt-16 px-6 py-10 md:p-10 rounded-[2rem] md:rounded-[3rem] bg-white shadow-inner border border-wine/5 italic text-muted-foreground text-lg font-medium leading-relaxed">
                     "From destination wedding resorts in Kerala to corporate
                     offsite resorts in Himachal Pradesh, we combine regional
                     diversity with structured discovery."
@@ -616,7 +643,11 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Social & Corporate Core */}
-      <SectionWrapper variant="gradient" className="py-24 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
+      <SectionWrapper
+        variant="gradient"
+        className="py-12 md:py-24 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        sideDecorations
+      >
         <AlternatingGrid
           items={[
             {
@@ -649,8 +680,7 @@ export default function AboutUsPage() {
                   </div>
                 </div>
               ),
-              image:
-                "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop",
+              image: socialImg.src,
             },
             {
               title: "Corporate & MICE – Structured Excellence",
@@ -680,8 +710,7 @@ export default function AboutUsPage() {
                   </div>
                 </div>
               ),
-              image:
-                "https://images.unsplash.com/photo-1540575861501-7ce0e1d1aa2b?q=80&w=2070&auto=format&fit=crop",
+              image: corporateImg.src,
             },
           ]}
         />
@@ -690,8 +719,8 @@ export default function AboutUsPage() {
       {/* Tech & Platform Strength */}
       <SectionWrapper
         variant="white"
-        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
-        parallaxImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        parallaxImage={parallax3.src}
         sideDecorations
       >
         <OrnateTitle
@@ -709,7 +738,7 @@ export default function AboutUsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 xl:gap-12 items-stretch">
           {[
             { title: "Scalable Architecture", icon: Layers },
             { title: "Structured Database Systems", icon: Package },
@@ -719,11 +748,11 @@ export default function AboutUsPage() {
           ].map((tech, i) => (
             <motion.div key={i} className="group h-full">
               <Tilt className="h-full">
-                <div className="p-12 rounded-[4rem] bg-ivory/60 backdrop-blur-md border border-champagne/20 flex flex-col items-center text-center h-full hover:bg-white transition-all">
-                  <div className="h-20 w-20 mb-8 rounded-3xl bg-white text-wine flex items-center justify-center shadow-lg group-hover:bg-wine group-hover:text-white transition-all duration-500">
-                    <tech.icon size={40} />
+                <div className="p-8 lg:px-6 lg:py-10 xl:p-12 rounded-[2.5rem] md:rounded-[4rem] bg-ivory/60 backdrop-blur-md border border-champagne/20 flex flex-col items-center text-center h-full hover:bg-white transition-all">
+                  <div className="h-16 w-16 md:h-18 md:w-18 lg:h-20 lg:w-20 mb-8 rounded-3xl bg-white text-wine flex items-center justify-center shadow-lg group-hover:bg-wine group-hover:text-white transition-all duration-500">
+                    <tech.icon size={36} className="lg:h-10 lg:w-10" />
                   </div>
-                  <h4 className="font-heading text-2xl font-bold leading-snug">
+                  <h4 className="font-heading text-xl lg:text-2xl font-bold leading-snug">
                     {tech.title}
                   </h4>
                 </div>
@@ -733,7 +762,7 @@ export default function AboutUsPage() {
         </div>
 
         <Tilt className="mt-32">
-          <div className="p-16 md:p-24 rounded-[5rem] bg-wine text-white text-center shadow-[0_50px_100px_rgba(var(--wine),0.3)] relative overflow-hidden">
+          <div className="px-6 py-12 md:p-24 rounded-[3rem] md:rounded-[5rem] bg-wine text-white text-center shadow-[0_50px_100px_rgba(var(--wine),0.3)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none flex items-center justify-center">
               <Globe size={600} />
             </div>
@@ -763,7 +792,7 @@ export default function AboutUsPage() {
       {/* Social Responsibility */}
       <SectionWrapper
         variant="ivory"
-        className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
         withDecorations
         sideDecorations
       >
@@ -815,16 +844,16 @@ export default function AboutUsPage() {
         </div>
 
         <Tilt className="mt-24">
-          <div className="bg-white p-16 md:p-24 rounded-[5rem] border border-champagne/20 shadow-luxury">
+          <div className="bg-white px-6 py-12 md:p-24 rounded-[2.5rem] md:rounded-[5rem] border border-champagne/20 shadow-luxury">
             <div className="flex flex-col md:flex-row items-center gap-16">
               <div className="h-32 w-32 rounded-full bg-wine/5 flex items-center justify-center text-wine shadow-inner">
                 <Handshake size={64} />
               </div>
-              <div className="flex-1 space-y-8">
-                <h4 className="font-heading text-4xl font-bold">
+              <div className="flex-1 space-y-8 text-center md:text-left">
+                <h4 className="font-heading text-3xl md:text-4xl font-bold">
                   Empowering Venue Partners
                 </h4>
-                <p className="text-xl text-muted-foreground italic">
+                <p className="text-lg md:text-xl text-muted-foreground italic">
                   We don’t just serve users — we empower venues. Our platform
                   helps:
                 </p>
@@ -837,9 +866,9 @@ export default function AboutUsPage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-4 text-base font-bold text-wine/80"
+                      className="flex items-center justify-center md:justify-start gap-4 text-base font-bold text-wine/80"
                     >
-                      <div className="h-2 w-2 bg-wine rounded-full" /> {item}
+                      <div className="h-2 w-2 bg-wine rounded-full shrink-0" /> {item}
                     </div>
                   ))}
                 </div>
@@ -855,18 +884,22 @@ export default function AboutUsPage() {
       </SectionWrapper>
 
       {/* Why Investors Believe */}
-      <SectionWrapper variant="white" className="py-32 pb-40 -mt-16 relative z-20 rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]" sideDecorations>
+      <SectionWrapper
+        variant="white"
+        className="py-16 md:py-32 pb-20 md:pb-40 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]"
+        sideDecorations
+      >
         <OrnateTitle
           title="Why Investors Believe"
           accent="The Future of Discovery"
         />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center">
           <div className="group">
             <Tilt>
               <div className="relative rounded-[5rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.3)]">
                 <div className="absolute inset-0 bg-wine/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
                 <img
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
+                  src={corporateAnalysisImg.src}
                   className="w-full h-auto"
                   alt="Business analysis"
                 />
@@ -928,7 +961,7 @@ export default function AboutUsPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  className="px-4 py-3 md:px-5 md:py-4 rounded-2xl bg-white/5 border border-white/20 text-base md:text-lg font-bold italic text-center group hover:bg-champagne/20 hover:border-champagne/30 transition-all duration-300"
+                  className="px-2 py-4 md:px-5 md:py-4 rounded-2xl bg-white/5 border border-white/20 text-[10px] min-[360px]:text-[12px] sm:text-base md:text-lg font-bold italic text-center group hover:bg-champagne/20 hover:border-champagne/30 transition-all duration-300 flex items-center justify-center min-h-[4.5rem] md:min-h-0"
                 >
                   {item}
                 </motion.div>
@@ -977,7 +1010,7 @@ function LookingAheadSection() {
         className="text-center space-y-16 max-w-6xl mx-auto px-6"
       >
         <OrnateTitle title="Looking Ahead" accent="The Roadmap to Scale" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-32">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-32">
           {[
             {
               title: "Scale Listings",
@@ -1059,7 +1092,7 @@ function FinalWordSection() {
   return (
     <SectionWrapper
       variant="dark"
-      className="py-32 pb-40 -mt-8 relative z-10 rounded-t-[4rem]"
+      className="py-32 pb-40 -mt-16 relative z-30 rounded-t-[4rem] shadow-[0_-20px_50px_rgba(0,0,0,0.2)]"
       id="final-branding"
       sideDecorations
     >
@@ -1067,15 +1100,20 @@ function FinalWordSection() {
         ref={containerRef}
         className="text-center space-y-16 max-w-6xl mx-auto px-6"
       >
-        <div className="pt-8">
-          <OrnateTitle title="Final Word" accent="Heart of the Marketplace" variant="dark" />
+        <div className="pt-0 md:pt-8">
+          <OrnateTitle
+            title="Final Word"
+            accent="Heart of the Marketplace"
+            variant="dark"
+          />
         </div>
         <div className="space-y-16">
           {/* High-contrast quote block: light bg + dark text for WCAG readability */}
           <div className="p-8 md:p-12 rounded-[2.5rem] bg-white shadow-xl border border-champagne/20 max-w-4xl mx-auto">
             <p className="text-lg md:text-2xl font-heading font-medium leading-relaxed italic text-foreground">
-              <span className="text-wine font-bold not-italic">VenueForEvent.com</span>
-              {" "}
+              <span className="text-wine font-bold not-italic">
+                VenueForEvent.com
+              </span>{" "}
               is not just about venues. It is about beginnings. It is about
               partnerships. It is about memories.
             </p>
@@ -1091,11 +1129,11 @@ function FinalWordSection() {
           <div className="py-20 flex flex-col items-center group relative isolate">
             <div className="absolute -inset-24 bg-white/5 blur-[100px] rounded-full -z-10" />
 
-            <motion.div style={{ scale }} className="text-center space-y-6">
-              <h4 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-[6vw] font-black text-white uppercase tracking-[0.2em] mb-4 break-words w-full [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+            <motion.div style={{ scale }} className="text-center space-y-6 w-full">
+              <h4 className="font-heading text-2xl sm:text-5xl md:text-5xl lg:text-[4.2vw] xl:text-[4.5vw] font-black text-white uppercase tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] xl:tracking-[0.2em] mb-4 whitespace-nowrap w-full [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
                 VenueForEvent.com
               </h4>
-              <p className="font-heading text-xl sm:text-3xl md:text-4xl font-bold text-white uppercase tracking-[0.6em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+              <p className="font-heading text-lg sm:text-3xl md:text-4xl lg:text-[2.2vw] xl:text-4xl font-bold text-white uppercase tracking-[0.3em] lg:tracking-[0.4em] xl:tracking-[0.5em] [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
                 A Part of Spodia
               </p>
               <p className="font-heading text-sm sm:text-lg md:text-xl font-medium text-champagne-light mt-4 italic">

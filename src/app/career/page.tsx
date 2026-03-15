@@ -33,6 +33,7 @@ import {
   Star
 } from "lucide-react";
 import careersHero from "@/assets/careers-hero.png";
+import parallax1 from "@/assets/celebration.jpg";
 
 export default function CareersPage() {
   return (
@@ -481,7 +482,7 @@ export default function CareersPage() {
       <SectionWrapper variant="ivory" withWave="none" className="py-24 -mt-16 relative z-20 rounded-t-[4rem]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="bg-wine rounded-[4rem] text-white overflow-hidden shadow-2xl flex flex-col lg:flex-row relative">
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-20" />
+               <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20" style={{ backgroundImage: `url(${parallax1.src})` }} />
                <div className="lg:w-1/2 p-16 md:p-24 relative z-10 flex flex-col justify-center border-r border-white/10">
                   <h2 className="text-5xl md:text-7xl font-heading font-black mb-8 leading-tight">What We Look For</h2>
                   <p className="text-3xl font-accent text-champagne mb-12">We don’t just hire resumes. We hire mindset.</p>
