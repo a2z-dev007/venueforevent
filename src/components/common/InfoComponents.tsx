@@ -282,6 +282,7 @@ interface ContentBlockProps {
   width?: "prose" | "full" | "medium";
   className?: string;
   variant?: "light" | "dark";
+  titleClassName?: string;
 }
 
 export const SubTitle = ({
@@ -305,6 +306,7 @@ export const ContentBlock = ({
   width = "prose",
   className,
   variant = "light",
+  titleClassName,
 }: ContentBlockProps) => {
   const isDark = variant === "dark";
   const alignStyles = {
@@ -346,8 +348,9 @@ export const ContentBlock = ({
       {title && (
         <h2
           className={cn(
-            "font-heading text-3xl md:text-5xl font-bold mb-4",
+            "font-heading text-2xl md:text-4xl font-bold mb-4 leading-tight",
             isDark ? "text-white" : "text-foreground",
+            titleClassName
           )}
         >
           {title}
@@ -527,8 +530,8 @@ export const SimpleChecklist = ({
             className={cn(
               "leading-relaxed transition-colors text-sm font-medium",
               isDark
-                ? "text-white/70 group-hover:text-champagne"
-                : "text-muted-foreground group-hover:text-wine",
+                ? "text-white/80 group-hover:text-champagne"
+                : "text-foreground/80 group-hover:text-wine",
             )}
           >
             {item}
@@ -544,7 +547,7 @@ export const StepGrid = ({
 }: {
   steps: { title: string; desc: string; icon: LucideIcon }[];
 }) => (
-  <div className="flex flex-wrap justify-center gap-8">
+  <div className="flex flex-wrap justify-center gap-8 items-stretch">
     {steps.map((step, i) => (
       <motion.div
         key={i}
@@ -553,21 +556,21 @@ export const StepGrid = ({
         viewport={{ once: true }}
         transition={{ delay: i * 0.1 }}
         whileHover={{ y: -8 }}
-        className="relative w-full sm:w-[320px] rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group"
+        className="relative w-full sm:w-[320px] flex"
       >
-        <Tilt>
-          <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full">
+        <Tilt className="h-full w-full">
+          <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-sm hover:shadow-2xl transition-all duration-500 group overflow-hidden">
             <div className="absolute top-6 right-8 text-7xl font-black text-champagne/5 group-hover:text-wine/10 transition-colors pointer-events-none">
               {i + 1}
             </div>
-            <div className="relative z-10 flex flex-col items-center text-center">
-              <div className="h-20 w-20 rounded-3xl bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10">
+            <div className="relative z-10 flex flex-col items-center text-center text-foreground h-full">
+              <div className="h-20 w-20 rounded-3xl bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
                 <step.icon className="h-10 w-10" />
               </div>
               <h4 className="font-heading text-2xl font-bold mb-4">
                 {step.title}
               </h4>
-              <p className="text-sm leading-relaxed italic line-clamp-3 opacity-70 group-hover:opacity-100 transition-opacity">
+              <p className="text-sm leading-relaxed italic opacity-70 group-hover:opacity-100 transition-opacity">
                 {step.desc}
               </p>
             </div>
@@ -646,9 +649,9 @@ export const HighlightCard = ({ icon: Icon, title, content }: any) => (
         <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed italic">
+        <div className="text-sm text-foreground/80 leading-relaxed italic">
           {content}
-        </p>
+        </div>
       </div>
     </Tilt>
   </motion.div>

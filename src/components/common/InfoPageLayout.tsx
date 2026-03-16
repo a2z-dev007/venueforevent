@@ -82,7 +82,7 @@ export default function InfoPageLayout({
 
         <motion.div
           style={{ y: heroTextY, opacity }}
-          className="relative z-10 text-center section-px max-w-6xl mx-auto pt-28 md:pt-0"
+          className="relative z-10 text-center section-px max-w-6xl mx-auto pt-32 md:pt-48 pb-20 md:pb-32"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
