@@ -54,8 +54,8 @@ const FloralDivider = ({ variant = "default" }: { variant?: "default" | "gold" |
   }, { scope: dividerRef });
 
   return (
-    <div ref={dividerRef} className="flex items-center justify-center py-4">
-      <svg width="320" height="40" viewBox="0 0 320 40" fill="none" className="opacity-50">
+    <div ref={dividerRef} className="flex items-center justify-center py-4 w-full px-4">
+      <svg width="100%" height="40" viewBox="0 0 320 40" fill="none" className="opacity-50 max-w-[320px] w-full">
         {/* Left vine */}
         <path d="M20 20 Q60 10 80 20 Q100 30 120 20" stroke={color} strokeWidth="1" fill="none" />
         <path d="M40 15 Q45 8 50 12" stroke={color} strokeWidth="0.8" fill="none" />

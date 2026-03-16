@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { Heart, Sparkles, Phone, Mail, Instagram, Facebook, Youtube, MapPin } from "lucide-react";
+import {
+  Heart,
+  Sparkles,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Youtube,
+  MapPin,
+} from "lucide-react";
 import FloralDivider from "./FloralDivider";
 import RangoliBorder from "./RangoliBorder";
 import CornerRose from "./CornerRose";
@@ -118,58 +127,30 @@ const Footer = () => {
           style={{ boxShadow: "var(--shadow-soft), 0 0 0 1px hsl(var(--champagne) / 0.08)" }}
         >
           {/* Responsive: 1 col mobile → 2 col sm → 3 col md → 6 col lg */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-10 md:gap-8 lg:gap-10">
-            {/* Brand + contact — full width on mobile, then 1 cell */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-10 md:gap-8 lg:gap-x-10 lg:gap-y-12 xl:gap-12">
+            {/* Brand column */}
             <div className="space-y-4 sm:space-y-5 text-center sm:text-left">
               <Link href="/" className="inline-block">
-                <img src="/logo.png" alt="VenueForEvent" className="h-8 sm:h-9 w-auto mx-auto sm:mx-0" />
+                <img src="/logo.png" alt="VenueForEvent" className="h-8 sm:h-9 lg:h-9 xl:h-10 w-auto mx-auto sm:mx-0" />
               </Link>
-              <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground max-w-xs mx-auto sm:mx-0 sm:max-w-none">
+              <p className="text-xs lg:text-[13px] xl:text-sm leading-relaxed text-muted-foreground max-w-xs mx-auto sm:mx-0 sm:max-w-none">
                 From dream weddings to corporate events — discover verified venues across India.
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2">
-                {[
-                  { Icon: Instagram, url: "#" },
-                  { Icon: Facebook, url: "#" },
-                  { Icon: Youtube, url: "#" },
-                ].map(({ Icon, url }) => (
-                  <a
-                    key={url}
-                    href={url}
-                    aria-label={`Social link`}
-                    className="flex h-10 w-10 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-champagne/30 text-muted-foreground transition-all hover:border-champagne hover:bg-champagne/15 hover:text-champagne active:scale-95"
-                  >
-                    <Icon className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
-                  </a>
-                ))}
-              </div>
-              <div className="space-y-2 pt-1 flex flex-col items-center sm:items-start">
-                <a href="tel:+918800842084" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-wine transition-colors min-h-[44px] sm:min-h-0 justify-center sm:justify-start">
-                  <Phone className="h-4 w-4 text-champagne shrink-0" /> +91-8800842084
-                </a>
-                <a href="mailto:support@venueforevent.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-wine transition-colors min-h-[44px] sm:min-h-0 justify-center sm:justify-start break-all">
-                  <Mail className="h-4 w-4 text-champagne shrink-0" /> support@venueforevent.com
-                </a>
-                <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-champagne shrink-0 mt-0.5" />
-                  <span>Head Office: New Delhi, India</span>
-                </p>
-              </div>
             </div>
 
             {/* Link sections — same responsive grid flow */}
             {footerLinkSections.map((section) => (
               <div key={section.title} className="text-center sm:text-left">
-                <h4 className="mb-3 sm:mb-4 flex items-center justify-center sm:justify-start gap-1.5 text-xs font-bold uppercase tracking-wider text-foreground">
+                <h4 className="mb-3 sm:mb-4 flex items-center justify-center sm:justify-start gap-1.5 text-xs lg:text-[13px] xl:text-sm font-bold uppercase tracking-wider text-foreground">
                   <Sparkles className="h-3.5 w-3.5 text-champagne shrink-0" />
                   {section.title}
                 </h4>
-                <ul className="space-y-1.5 sm:space-y-2">
+                <ul className="space-y-1.5 sm:space-y-2 lg:space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-wine hover:underline underline-offset-2 py-2 sm:py-1 block rounded-md active:bg-wine/5 sm:active:bg-transparent"
+                        className="text-sm lg:text-[13px] xl:text-sm text-muted-foreground transition-all hover:text-wine hover:pl-1 block"
                       >
                         {link.label}
                       </Link>
@@ -178,6 +159,56 @@ const Footer = () => {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Social & Contact Bar — Optimized for Laptop Row */}
+          <div className="mt-12 pt-8 border-t border-champagne/15 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="flex items-center justify-center sm:justify-start gap-4">
+              {[
+                { Icon: Instagram, url: "#" },
+                { Icon: Facebook, url: "#" },
+                { Icon: Youtube, url: "#" },
+              ].map(({ Icon, url }) => (
+                <a
+                  key={url}
+                  href={url}
+                  className="flex h-10 w-10 sm:h-9 sm:w-9 lg:h-10 lg:w-10 items-center justify-center rounded-xl border border-champagne/20 bg-white/5 text-muted-foreground transition-all duration-300 hover:border-wine hover:bg-wine hover:text-white hover:-translate-y-1 shadow-sm hover:shadow-luxury"
+                >
+                  <Icon className="h-5 w-5 sm:h-4 sm:w-4 lg:h-5 lg:w-5" />
+                </a>
+              ))}
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-10">
+              <a
+                href="tel:+918800842084"
+                className="flex items-center gap-3 text-sm lg:text-[13px] xl:text-sm text-muted-foreground hover:text-wine transition-colors group/item whitespace-nowrap"
+              >
+                <div className="flex h-7 w-7 lg:h-7 lg:w-7 items-center justify-center rounded-lg bg-champagne/10 text-champagne group-hover/item:bg-wine group-hover/item:text-white transition-all shadow-sm">
+                  <Phone className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
+                </div>
+                <span className="font-medium tracking-wide">
+                  +91 88008 42084
+                </span>
+              </a>
+              <a
+                href="mailto:support@venueforevent.com"
+                className="flex items-center gap-3 text-sm lg:text-[13px] xl:text-sm text-muted-foreground hover:text-wine transition-colors group/item whitespace-nowrap"
+              >
+                <div className="flex h-7 w-7 lg:h-7 lg:w-7 items-center justify-center rounded-lg bg-champagne/10 text-champagne group-hover/item:bg-wine group-hover/item:text-white transition-all shadow-sm">
+                  <Mail className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
+                </div>
+                <span className="font-medium tracking-wide">
+                  support@venueforevent.com
+                </span>
+              </a>
+              <div className="flex items-center gap-3 text-sm lg:text-[13px] xl:text-sm text-muted-foreground group/item whitespace-nowrap">
+                <div className="flex h-7 w-7 lg:h-7 lg:w-7 items-center justify-center rounded-lg bg-champagne/10 text-champagne shadow-sm">
+                  <MapPin className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
+                </div>
+                <span className="font-medium tracking-wide">Mumbai, India</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -188,17 +219,6 @@ const Footer = () => {
           <p className="text-xs text-muted-foreground order-2 sm:order-1">
             © {new Date().getFullYear()} VenueForEvent.com. All rights reserved. Homocation Asia Pvt. Ltd.
           </p>
-          <nav className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 order-1 sm:order-2" aria-label="Legal links">
-            <Link href="/privacy-policy" className="text-xs text-muted-foreground hover:text-wine transition-colors py-1 min-h-[44px] flex items-center justify-center sm:min-h-0">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions" className="text-xs text-muted-foreground hover:text-wine transition-colors py-1 min-h-[44px] flex items-center justify-center sm:min-h-0">
-              Terms & Conditions
-            </Link>
-            <Link href="/disclaimer" className="text-xs text-muted-foreground hover:text-wine transition-colors py-1 min-h-[44px] flex items-center justify-center sm:min-h-0">
-              Disclaimer
-            </Link>
-          </nav>
           <p className="flex items-center justify-center gap-1 text-xs text-muted-foreground order-3">
             Made with <Heart className="h-3.5 w-3.5 fill-wine text-wine" /> for celebrations
           </p>

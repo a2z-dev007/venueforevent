@@ -144,7 +144,7 @@ export default function PartnerWithUsPage() {
 
       {/* Final CTA */}
       <SectionWrapper variant="dark" withDecorations className="section-bg-dark">
-        <ContentBlock align="center" title="Let's Build Together" accent="If you believe in" className="text-white">
+        <ContentBlock align="center" title="Let's Build Together" accent="If you believe in" variant="dark">
           <p className="text-white/90 italic mb-10">If you believe in: ✔ Professional growth • ✔ Transparent collaboration • ✔ Scalable digital distribution • ✔ Hospitality excellence • ✔ Long-term brand equity — then VenueForEvent.com is your ecosystem.</p>
           <p className="text-2xl font-heading text-champagne font-bold mb-12">🚀 Start the Conversation</p>
           <div className="flex flex-wrap justify-center gap-6">

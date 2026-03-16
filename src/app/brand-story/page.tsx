@@ -23,16 +23,26 @@ import {
   History,
 } from "lucide-react";
 import brandStoryHero from "@/assets/brand-story-hero.png";
+import parallax1 from "@/assets/celebration.jpg";
+import parallax2 from "@/assets/banquet-hall.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SideFloral from "@/components/pages-components/home/SideFloral";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-const fadeUp = { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-80px" } };
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+};
 const stagger = (i: number) => ({ transition: { delay: i * 0.08 + 0.2 } });
 
 export default function BrandStoryPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
   const y = useTransform(scrollYProgress, [0, 0.15], [0, 80]);
   const opacity = useTransform(scrollYProgress, [0.05, 0.2], [0.4, 1]);
 
@@ -46,13 +56,16 @@ export default function BrandStoryPage() {
     >
       <div ref={containerRef} className="relative">
         {/* Opening section – screenshot-style: title + florals left/right */}
-        <section className="relative bg-[hsl(var(--ivory))] pt-20 pb-28 md:pt-28 md:pb-36 overflow-hidden">
+        <SectionWrapper
+          variant="ivory"
+          className="pt-12 md:pt-24 pb-16 md:pb-24 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        >
           <SideFloral side="left" className="top-8 md:top-12 opacity-90" />
           <SideFloral side="right" className="top-8 md:top-12 opacity-90" />
 
           <motion.div
             style={{ y, opacity }}
-            className="relative z-10 max-w-5xl mx-auto px-6 text-center"
+            className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 text-center"
           >
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -76,10 +89,20 @@ export default function BrandStoryPage() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="space-y-4 text-lg md:text-xl text-muted-foreground italic max-w-2xl mx-auto"
             >
-              <p>A bride imagining her wedding venue glowing under soft lights.</p>
-              <p>A founder planning a corporate event that inspires innovation.</p>
-              <p>A family searching for the perfect banquet hall to celebrate a milestone birthday.</p>
-              <p>A global team coordinating a conference venue that reflects their ambition.</p>
+              <p>
+                A bride imagining her wedding venue glowing under soft lights.
+              </p>
+              <p>
+                A founder planning a corporate event that inspires innovation.
+              </p>
+              <p>
+                A family searching for the perfect banquet hall to celebrate a
+                milestone birthday.
+              </p>
+              <p>
+                A global team coordinating a conference venue that reflects
+                their ambition.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -95,22 +118,32 @@ export default function BrandStoryPage() {
               </Link>
             </motion.div>
           </motion.div>
-        </section>
+        </SectionWrapper>
 
-        {/* Quote block – full width */}
-        <section id="our-work" className="relative bg-dark-accent py-20 md:py-28">
+        <SectionWrapper
+          variant="dark"
+          id="our-work"
+          className="relative pt-16 pb-24 md:pt-20 md:pb-32 -mt-10 md:-mt-16 z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
+        >
           <motion.div
             {...fadeUp}
-            className="max-w-4xl mx-auto px-6 text-center"
+            className="max-w-4xl mx-auto px-4 md:px-6 text-center"
           >
-            <p className="text-xl md:text-2xl lg:text-3xl font-heading text-champagne italic leading-relaxed">
-              Before the invitations are sent, before the décor is installed, before the first guest arrives — there is a search. A search for the right space. The right atmosphere. The right partners. That search is often overwhelming. And that is why VenueForEvent.com was created.
+            <p className="text-xl md:text-2xl lg:text-3xl font-heading text-champagne leading-relaxed">
+              Before the invitations are sent, before the décor is installed,
+              before the first guest arrives — there is a search. A search for
+              the right space. The right atmosphere. The right partners. That
+              search is often overwhelming. And that is why VenueForEvent.com
+              was created.
             </p>
           </motion.div>
-        </section>
+        </SectionWrapper>
 
         {/* The Gap We Saw – creative two-column with scroll reveal */}
-        <SectionWrapper variant="white" className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]">
+        <SectionWrapper
+          variant="white"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        >
           <SideFloral side="left" className="top-4 opacity-40" />
           <SideFloral side="right" className="top-4 opacity-40" />
           <div className="relative z-10">
@@ -120,19 +153,26 @@ export default function BrandStoryPage() {
             >
               The Gap We Saw
             </motion.h2>
-            <motion.p {...fadeUp} className="text-center text-wine font-accent text-xl mb-16">
+            <motion.p
+              {...fadeUp}
+              className="text-center text-wine font-accent text-xl mb-16"
+            >
               Fragmentation to Unification
             </motion.p>
             <motion.p
               {...fadeUp}
-              className="text-xl md:text-2xl text-muted-foreground text-center leading-relaxed italic max-w-4xl mx-auto mb-16"
+              className="text-xl md:text-2xl text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto mb-16"
             >
-              The event industry in India is vibrant, emotional, and deeply rooted in culture. From grand destination wedding celebrations to high-impact business events, from elegant luxury hotels to open-air party lawns, the diversity of spaces is extraordinary. Yet the discovery process remained fragmented.
+              The event industry in India is vibrant, emotional, and deeply
+              rooted in culture. From grand destination wedding celebrations to
+              high-impact business events, from elegant luxury hotels to
+              open-air party lawns, the diversity of spaces is extraordinary.
+              Yet the discovery process remained fragmented.
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <motion.div {...fadeUp} {...stagger(0)} className="group">
-                <Tilt>
-                  <div className="p-10 md:p-12 rounded-[3rem] bg-ivory/70 border border-champagne/20 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+              <motion.div {...fadeUp} {...stagger(0)} className="group h-full">
+                <Tilt className="h-full">
+                  <div className="px-5 py-8 md:p-12 rounded-[3rem] bg-ivory/70 border border-champagne/20 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
                     <SimpleChecklist
                       columns={1}
                       items={[
@@ -145,11 +185,15 @@ export default function BrandStoryPage() {
                   </div>
                 </Tilt>
               </motion.div>
-              <motion.div {...fadeUp} {...stagger(1)} className="group">
-                <Tilt>
-                  <div className="p-10 md:p-12 rounded-[3rem] bg-wine/5 border border-wine/15 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                    <p className="text-lg md:text-xl leading-relaxed text-muted-foreground italic">
-                      Finding reliable event venues and trusted event services required endless calls, scattered information, and uncertainty. We believed it could be better. We believed event booking should feel as seamless as the celebration itself.
+              <motion.div {...fadeUp} {...stagger(1)} className="group h-full">
+                <Tilt className="h-full">
+                  <div className="px-5 py-8 md:p-12 rounded-[3rem] bg-wine/5 border border-wine/15 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                    <p className="text-lg md:text-lg leading-relaxed text-muted-foreground italic">
+                      Finding reliable event venues and trusted event services
+                      required endless calls, scattered information, and
+                      uncertainty. We believed it could be better. We believed
+                      event booking should feel as seamless as the celebration
+                      itself.
                     </p>
                   </div>
                 </Tilt>
@@ -162,30 +206,75 @@ export default function BrandStoryPage() {
         <SectionWrapper
           variant="ivory"
           withDecorations
-          className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.15)]"
         >
-          <OrnateTitle title="The Birth of a Smarter Event Marketplace" accent="A Unified Ecosystem" />
-          <ContentBlock align="center" width="full">
-            <p className="text-2xl leading-relaxed text-muted-foreground mb-12 italic">
-              VenueForEvent.com was built with a clear purpose: To simplify venue discovery and bring structure, transparency, and trust into the event planning journey.
-            </p>
-            <p className="text-xl text-wine font-bold mb-8">We envisioned a modern event marketplace where:</p>
-            <SimpleChecklist
-              columns={2}
-              items={[
-                "Wedding venues and corporate event spaces are easily discoverable.",
-                "Banquet halls, farmhouses, and exhibition venues are presented with clarity.",
-                "Event vendors and professional event partners are accessible in one trusted ecosystem.",
-                "Hosts can compare, evaluate, and connect confidently.",
-              ]}
-            />
-          </ContentBlock>
+          <OrnateTitle
+            title="The Birth of a Smarter Event Marketplace"
+            accent="A Unified Ecosystem"
+          />
+
+          <div className="max-w-5xl mx-auto px-4 md:px-6 mb-20">
+            <motion.p
+              {...fadeUp}
+              className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-center mb-16"
+            >
+              VenueForEvent.com was built with a clear purpose: To{" "}
+              <span className="text-wine font-semibold ">
+                simplify venue discovery
+              </span>{" "}
+              and bring structure, transparency, and trust into the event
+              planning journey.
+            </motion.p>
+
+            <motion.div
+              {...fadeUp}
+              className="relative pt-14 pb-16 px-4 md:p-16 rounded-[4rem] bg-white border border-champagne/10 shadow-[0_20px_50px_rgba(0,0,0,0.04)] overflow-hidden group"
+            >
+              {/* Themed background accents */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-wine/5 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:bg-wine/10 transition-all duration-1000" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-champagne/10 rounded-full blur-[100px] -ml-40 -mb-40 group-hover:bg-champagne/20 transition-all duration-1000" />
+
+              <div className="relative z-10">
+                <div className="flex flex-col items-center mb-12 text-center">
+                  <div className="h-12 w-12 rounded-2xl bg-ivory text-wine flex items-center justify-center mb-6 shadow-sm border border-champagne/10 group-hover:rotate-12 transition-transform duration-500">
+                    <Sparkles size={24} />
+                  </div>
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-wine">
+                    We envisioned a modern event marketplace where:
+                  </h3>
+                  <div className="h-1 w-20 bg-wine/10 rounded-full mt-6" />
+                </div>
+
+                <SimpleChecklist
+                  columns={2}
+                  items={[
+                    "Wedding venues and corporate event spaces are easily discoverable.",
+                    "Banquet halls, farmhouses, and exhibition venues are presented with clarity.",
+                    "Event vendors and professional event partners are accessible in one trusted ecosystem.",
+                    "Hosts can compare, evaluate, and connect confidently.",
+                  ]}
+                />
+              </div>
+            </motion.div>
+          </div>
           <motion.div {...fadeUp} className="mt-16">
             <StepGrid
               steps={[
-                { title: "Technology", desc: "Technology was our foundation.", icon: Zap },
-                { title: "Trust", desc: "Trust was our promise.", icon: ShieldCheck },
-                { title: "Community", desc: "Community was our goal.", icon: Users },
+                {
+                  title: "Technology",
+                  desc: "Technology was our foundation.",
+                  icon: Zap,
+                },
+                {
+                  title: "Trust",
+                  desc: "Trust was our promise.",
+                  icon: ShieldCheck,
+                },
+                {
+                  title: "Community",
+                  desc: "Community was our goal.",
+                  icon: Users,
+                },
               ]}
             />
           </motion.div>
@@ -194,18 +283,25 @@ export default function BrandStoryPage() {
         {/* Our Mission – parallax section */}
         <SectionWrapper
           variant="white"
-          className="py-28 md:py-36 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
-          parallaxImage="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+          parallaxImage={parallax1.src}
         >
           <OrnateTitle title="Our Mission" accent="Transforming Discovery" />
           <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-            <motion.p {...fadeUp} className="text-2xl md:text-3xl font-heading text-wine italic leading-relaxed">
-              Our mission is simple yet powerful: To connect people with the right celebration spaces and event service providers through a transparent, efficient, and professional digital platform.
+            <motion.p
+              {...fadeUp}
+              className="text-2xl md:text-3xl font-heading text-wine leading-relaxed"
+            >
+              Our mission is simple yet powerful: To connect people with the
+              right celebration spaces and event service providers through a
+              transparent, efficient, and professional digital platform.
             </motion.p>
-            <p className="text-xl text-muted-foreground italic">We aim to transform the way India discovers:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+            <p className="text-xl text-muted-foreground italic">
+              We aim to transform the way India discovers:
+            </p>
+            <div className="max-w-3xl mx-auto px-4">
               <SimpleChecklist
-                columns={1}
+                columns={2}
                 items={[
                   "Wedding planning solutions",
                   "Corporate meetings spaces",
@@ -217,8 +313,12 @@ export default function BrandStoryPage() {
                 ]}
               />
             </div>
-            <motion.p {...fadeUp} className="text-xl text-muted-foreground font-medium italic pt-8">
-              We are not just listing properties. We are building meaningful connections.
+            <motion.p
+              {...fadeUp}
+              className="text-xl text-muted-foreground font-medium italic pt-8"
+            >
+              We are not just listing properties. We are building meaningful
+              connections.
             </motion.p>
           </div>
         </SectionWrapper>
@@ -226,11 +326,15 @@ export default function BrandStoryPage() {
         {/* Emotion – dark section with cards */}
         <SectionWrapper
           variant="dark"
-          className="py-28 md:py-36 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.15)]"
           withDecorations
         >
-          <OrnateTitle title="The Emotion Behind Every Celebration" accent="Moments That Matter" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          <OrnateTitle
+            title="The Emotion Behind Every Celebration"
+            accent="Moments That Matter"
+            variant="dark"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             {[
               {
                 title: "A wedding venue",
@@ -249,117 +353,209 @@ export default function BrandStoryPage() {
               },
             ].map((item, i) => (
               <motion.div key={i} {...fadeUp} {...stagger(i)} className="group">
-                <Tilt>
-                  <div className="p-10 md:p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 h-full">
+                <Tilt className="h-full">
+                  <div className="p-6 md:p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 h-full flex flex-col items-center text-center md:items-start md:text-left">
                     <div className="h-16 w-16 rounded-2xl bg-white/10 text-champagne flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                       <item.icon className="h-8 w-8" />
                     </div>
-                    <h4 className="font-heading text-xl font-bold mb-4 text-champagne">{item.title}</h4>
-                    <p className="text-lg text-white/70 leading-relaxed italic">{item.text}</p>
+                    <h4 className="font-heading text-xl font-bold mb-4 text-champagne">
+                      {item.title}
+                    </h4>
+                    <p className="text-lg text-white/70 leading-relaxed italic">
+                      {item.text}
+                    </p>
                   </div>
                 </Tilt>
               </motion.div>
             ))}
           </div>
-          <motion.p {...fadeUp} className="mt-16 text-center text-xl text-white/80 italic max-w-3xl mx-auto">
-            At VenueForEvent.com, we understand this emotional depth. That is why we approach event hosting and venue booking with care, responsibility, and respect for the significance of every occasion.
+          <motion.p
+            {...fadeUp}
+            className="mt-16 text-center text-xl text-white/80 max-w-3xl mx-auto"
+          >
+            At VenueForEvent.com, we understand this emotional depth. That is
+            why we approach event hosting and venue booking with care,
+            responsibility, and respect for the significance of every occasion.
           </motion.p>
         </SectionWrapper>
 
         {/* For the Dreamers and the Doers – side florals again */}
-        <section className="relative bg-[hsl(var(--ivory))] py-24 md:py-32 overflow-hidden">
+        <SectionWrapper
+          variant="ivory"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] overflow-hidden"
+        >
           <SideFloral side="left" className="top-12 opacity-70" />
           <SideFloral side="right" className="top-12 opacity-70" />
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
-            <OrnateTitle title="For the Dreamers and the Doers" accent="Two Communities, One Vision" />
-            <motion.p {...fadeUp} className="text-center text-xl text-muted-foreground italic mb-16 max-w-2xl mx-auto">
-              We built VenueForEvent.com for two equally important communities.
-            </motion.p>
+          <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
+            <OrnateTitle
+              title="For the Dreamers and the Doers"
+              accent="Two Communities, One Vision"
+            />
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <motion.p
+                {...fadeUp}
+                className="text-xl text-muted-foreground italic"
+              >
+                We built VenueForEvent.com for two equally important
+                communities.
+              </motion.p>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
               <motion.div {...fadeUp} {...stagger(0)} className="group">
-                <Tilt>
-                  <div className="p-12 md:p-16 rounded-[3rem] bg-white border border-champagne/10 shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
-                    <SubTitle className="text-wine flex items-center gap-4">
-                      <Users className="h-8 w-8" /> For Event Hosts
+                <Tilt className="h-full">
+                  <div className="pt-10 pb-16 px-6 md:p-14 rounded-[3.5rem] bg-white border border-champagne/10 shadow-luxury hover:shadow-2xl transition-all duration-500 h-full relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-wine/5 rounded-full blur-3xl pointer-events-none" />
+                    <SubTitle className="text-wine flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 md:gap-6 mb-8 text-center sm:text-left">
+                      <div className="p-3 md:p-4 rounded-2xl bg-ivory border border-champagne/20 shrink-0">
+                        <Users className="h-8 w-8 md:h-10 md:w-10" />
+                      </div>
+                      <span className="text-2xl md:text-3xl lg:text-4xl leading-tight">For Event Hosts</span>
                     </SubTitle>
-                    <p className="text-muted-foreground italic mb-8 leading-relaxed">
-                      We help individuals, families, corporations, and planners:
+                    <p className="text-lg text-muted-foreground mb-10 leading-relaxed border-l-0 sm:border-l-2 border-wine/20 pl-0 sm:pl-6 text-center sm:text-left">
+                      We help individuals, families, corporations, and planners
+                      discover clarity in the chaos of event planning.
                     </p>
-                    <SimpleChecklist
-                      columns={1}
-                      items={[
-                        "Discover premium venues and affordable venues alike",
-                        "Compare amenities, capacity, and location",
-                        "Connect directly with decision-makers",
-                        "Explore complete event solutions",
-                        "Simplify event coordination",
-                      ]}
-                    />
-                    <p className="mt-8 text-muted-foreground italic leading-relaxed">
-                      Whether it is a destination wedding, a corporate event, a product launch, or a private celebration — we aim to make venue search intuitive and stress-free. You deserve clarity. You deserve efficiency. You deserve confidence.
+                    <div className="bg-ivory/30 p-6 md:p-8 rounded-3xl border border-champagne/10 mb-10">
+                      <p className="text-wine/80 font-bold text-xs uppercase tracking-widest mb-6 px-1 text-center sm:text-left">
+                        VenueForEvent.com provides:
+                      </p>
+                      <SimpleChecklist
+                        columns={1}
+                        items={[
+                          "Discover premium venues and affordable venues alike",
+                          "Compare amenities, capacity, and location",
+                          "Connect directly with decision-makers",
+                          "Explore complete event solutions",
+                          "Simplify event coordination",
+                        ]}
+                      />
+                    </div>
+                    <p className="text-muted-foreground italic leading-relaxed text-sm text-center sm:text-left">
+                      Whether it is a destination wedding, a corporate event, or
+                      a private celebration — we aim to make venue search
+                      intuitive and stress-free.{" "}
+                      <span className="text-wine font-bold">
+                        You deserve confidence in every choice.
+                      </span>
                     </p>
                   </div>
                 </Tilt>
               </motion.div>
+
               <motion.div {...fadeUp} {...stagger(1)} className="group">
-                <Tilt>
-                  <div className="p-12 md:p-16 rounded-[3rem] bg-dark-accent text-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full border border-white/10">
-                    <SubTitle className="text-champagne m-0 flex items-center gap-4">
-                      <Building2 className="h-8 w-8" /> For Venue Owners & Service Providers
+                <Tilt className="h-full">
+                  <div className="pt-10 pb-16 px-6 md:p-14 rounded-[3.5rem] bg-dark-accent text-white shadow-luxury hover:shadow-2xl transition-all duration-500 h-full border border-white/10 relative overflow-hidden">
+                    <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-wine/20 rounded-full blur-[100px] pointer-events-none" />
+                    <SubTitle className="text-champagne flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 md:gap-6 mb-8 text-center sm:text-left">
+                      <div className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 shrink-0">
+                        <Building2 className="h-8 w-8 md:h-10 md:w-10" />
+                      </div>
+                      <span className="text-2xl md:text-3xl lg:text-4xl leading-tight">For Venue Owners</span>
                     </SubTitle>
-                    <p className="text-white/80 italic mb-8 leading-relaxed">
-                      Behind every remarkable event venue stands a passionate team. From boutique resorts and luxury hotels to large-scale banquet halls and party lawns, venue owners invest heavily in hospitality, design, and guest experience. Yet visibility in a competitive hospitality marketplace is challenging.
+                    <p className="text-lg text-white/70 mb-10 leading-relaxed border-l-0 sm:border-l-2 border-champagne/30 pl-0 sm:pl-6 text-center sm:text-left">
+                      Visibility in a competitive hospitality marketplace is
+                      challenging. We bridge the gap between excellence and
+                      discovery.
                     </p>
-                    <p className="text-champagne font-medium mb-4">VenueForEvent.com supports:</p>
-                    <SimpleChecklist
-                      columns={1}
-                      items={[
-                        "Venue listings India",
-                        "Event service providers",
-                        "Caterers",
-                        "Event decorators",
-                        "Wedding photographers",
-                        "Audio visual services professionals",
-                        "Event management companies",
-                      ]}
-                    />
-                    <p className="mt-8 text-white/80 italic leading-relaxed">
-                      We offer digital exposure, structured presentation, and genuine event leads to help businesses grow sustainably. Your space deserves recognition. Your services deserve the right audience.
+                    <div className="bg-white/5 p-6 md:p-8 rounded-3xl border border-white/5 mb-10">
+                      <p className="text-champagne font-bold text-xs uppercase tracking-widest mb-6 px-1 text-center sm:text-left">
+                        VenueForEvent.com supports:
+                      </p>
+                      <SimpleChecklist
+                        variant="dark"
+                        columns={1}
+                        items={[
+                          "Venue listings across India",
+                          "Event service providers & Caterers",
+                          "Event decorators & Designers",
+                          "Wedding photographers & Media",
+                          "Audio visual & Tech professionals",
+                          "Full-scale management companies",
+                        ]}
+                      />
+                    </div>
+                    <p className="text-white/60 italic leading-relaxed text-sm text-center sm:text-left">
+                      From palace weddings to high-tech boardroom meetings — we
+                      provide the stage.{" "}
+                      <span className="text-champagne font-bold">
+                        Your venue, our platform, endless possibilities.
+                      </span>
                     </p>
                   </div>
                 </Tilt>
               </motion.div>
             </div>
           </div>
-        </section>
+        </SectionWrapper>
 
         {/* Building Trust */}
         <SectionWrapper
           variant="white"
-          className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
-          parallaxImage="https://images.unsplash.com/photo-1540575861501-7ce0e1d1aa2b?q=80&w=2070&auto=format&fit=crop"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+          parallaxImage={parallax2.src}
+          withDecorations
         >
-          <OrnateTitle title="Building Trust in the Event Industry" accent="Foundation of Every Celebration" />
-          <div className="max-w-4xl mx-auto space-y-10 relative z-10">
-            <motion.p {...fadeUp} className="text-xl text-muted-foreground italic leading-relaxed text-center">
-              Trust is the foundation of every successful celebration. Hosts trust venues with their most meaningful occasions. Businesses trust event planners with brand reputation. Families trust service providers with cherished memories.
+          <OrnateTitle
+            title="Building Trust in the Event Industry"
+            accent="Foundation of Every Celebration"
+          />
+          <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-16 relative z-10">
+            <motion.p
+              {...fadeUp}
+              className="text-xl md:text-2xl text-muted-foreground italic leading-relaxed text-center max-w-4xl mx-auto"
+            >
+              Trust is the foundation of every successful celebration. Hosts
+              trust venues with their most meaningful occasions. Businesses
+              trust event planners with brand reputation. Families trust service
+              providers with cherished memories.
             </motion.p>
+
             <motion.div {...fadeUp}>
-              <Tilt>
-                <div className="p-12 md:p-16 rounded-[3rem] bg-wine/10 border border-wine/20 shadow-xl hover:shadow-2xl transition-all duration-500">
-                  <p className="text-xl font-heading text-wine mb-8">VenueForEvent.com is committed to strengthening this trust by:</p>
-                  <SimpleChecklist
-                    columns={1}
-                    items={[
-                      "Encouraging verified listings",
-                      "Promoting transparent communication",
-                      "Supporting professional standards",
-                      "Creating a trusted venue network",
-                    ]}
-                  />
-                  <p className="mt-10 text-muted-foreground italic text-lg">
-                    We are continuously refining our event technology to ensure smoother interactions, faster responses, and clearer information. Because when planning becomes easier, creativity flourishes.
-                  </p>
+              <Tilt className="h-full">
+                <div className="pt-14 pb-16 px-4 md:p-16 rounded-[4rem] bg-white/70 backdrop-blur-xl border border-wine/10 shadow-luxury hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-wine/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-champagne/10 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
+
+                  <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+                    <div className="lg:w-1/2 space-y-8">
+                      <h3 className="text-3xl md:text-5xl font-heading font-bold text-wine leading-tight">
+                        Strengthening the{" "}
+                        <span className="text-champagne-gold">
+                          Bonds of Trust
+                        </span>
+                      </h3>
+                      <div className="w-20 h-1 bg-champagne/40 rounded-full" />
+                      <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                        VenueForEvent.com is more than a platform — it's a
+                        commitment to integrity. We understand that every
+                        inquiry represents a dream, and we've built our
+                        ecosystem to protect that vision.
+                      </p>
+                    </div>
+
+                    <div className="lg:w-1/2 bg-ivory/40 p-6 md:p-12 rounded-[3.5rem] border border-champagne/20 shadow-inner w-full">
+                      <SimpleChecklist
+                        columns={1}
+                        items={[
+                          "Encouraging verified and detailed listings",
+                          "Promoting transparent, direct communication",
+                          "Supporting the highest professional standards",
+                          "Creating an elite, trusted venue network",
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-16 pt-12 border-t border-wine/10 text-center relative z-10">
+                    <p className="text-xl md:text-3xl font-heading text-wine italic max-w-4xl mx-auto leading-relaxed">
+                      "When planning becomes easier, creativity flourishes."
+                    </p>
+                    <p className="mt-6 text-muted-foreground italic text-lg max-w-2xl mx-auto">
+                      We are continuously refining our event technology to
+                      ensure smoother interactions, faster responses, and
+                      clearer information for everyone involved.
+                    </p>
+                  </div>
                 </div>
               </Tilt>
             </motion.div>
@@ -367,25 +563,48 @@ export default function BrandStoryPage() {
         </SectionWrapper>
 
         {/* Technology + Transparency – gradient */}
-        <SectionWrapper variant="gradient" className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <SectionWrapper
+          variant="gradient"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto px-4 md:px-6">
             <motion.div {...fadeUp} {...stagger(0)}>
-              <ContentBlock title="Technology With a Human Heart" accent="Empower, Not Complicate" width="full">
+              <ContentBlock
+                title="Technology With a Human Heart"
+                accent="Empower, Not Complicate"
+                width="full"
+              >
                 <p className="text-lg text-muted-foreground italic mb-6 leading-relaxed">
-                  We believe technology should empower, not complicate. Our digital event platform is designed to simplify: Venue comparison, Inquiry management, Event packages exploration, Vendor connections, Hospitality platform engagement.
+                  We believe technology should empower, not complicate. Our
+                  digital event platform is designed to simplify: Venue
+                  comparison, Inquiry management, Event packages exploration,
+                  Vendor connections, Hospitality platform engagement.
                 </p>
                 <p className="text-lg text-muted-foreground italic leading-relaxed">
-                  But behind the interface is a deeply human mission — to support people during moments that truly matter. From large MICE events to intimate gatherings, from exhibition venues to celebration spaces, every listing represents someone's dream and someone's business. We treat both with equal respect.
+                  But behind the interface is a deeply human mission — to
+                  support people during moments that truly matter. From large
+                  MICE events to intimate gatherings, from exhibition venues to
+                  celebration spaces, every listing represents someone's dream
+                  and someone's business. We treat both with equal respect.
                 </p>
               </ContentBlock>
             </motion.div>
             <motion.div {...fadeUp} {...stagger(1)}>
-              <ContentBlock title="Transparency as Our Standard" accent="Clarity Builds Confidence" width="full">
+              <ContentBlock
+                title="Transparency as Our Standard"
+                accent="Clarity Builds Confidence"
+                width="full"
+              >
                 <p className="text-lg text-muted-foreground italic mb-6 leading-relaxed">
-                  We encourage detailed descriptions, accurate images, and realistic expectations. We understand that event planning services require clarity in: Capacity, Facilities, Location, Accessibility, Infrastructure.
+                  We encourage detailed descriptions, accurate images, and
+                  realistic expectations. We understand that event planning
+                  services require clarity in: Capacity, Facilities, Location,
+                  Accessibility, Infrastructure.
                 </p>
                 <p className="text-lg text-muted-foreground italic leading-relaxed">
-                  By promoting organized information, we help reduce uncertainty and enable informed decision-making. A smoother process means a more joyful experience.
+                  By promoting organized information, we help reduce uncertainty
+                  and enable informed decision-making. A smoother process means
+                  a more joyful experience.
                 </p>
               </ContentBlock>
             </motion.div>
@@ -393,46 +612,127 @@ export default function BrandStoryPage() {
         </SectionWrapper>
 
         {/* Vision + Why We Exist + Community + Promise + Journey */}
-        <SectionWrapper variant="ivory" className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]" withDecorations>
-          <OrnateTitle title="Our Vision for the Future" accent="The Road Ahead" />
-          <div className="max-w-4xl mx-auto space-y-10">
-            <motion.p {...fadeUp} className="text-xl text-muted-foreground italic leading-relaxed text-center">
-              We envision VenueForEvent.com becoming India's most reliable event booking platform — a comprehensive ecosystem that unites: Event venues, Event vendors, Professional event partners, Business growth platform solutions, Hospitality innovators.
+        <SectionWrapper
+          variant="ivory"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.15)]"
+          withDecorations
+        >
+          <OrnateTitle
+            title="Our Vision for the Future"
+            accent="The Road Ahead"
+          />
+          <div className="max-w-4xl mx-auto px-4 md:px-6 space-y-10">
+            <motion.p
+              {...fadeUp}
+              className="text-xl text-muted-foreground italic leading-relaxed text-center"
+            >
+              We envision VenueForEvent.com becoming India's most reliable event
+              booking platform — a comprehensive ecosystem that unites: Event
+              venues, Event vendors, Professional event partners, Business
+              growth platform solutions, Hospitality innovators.
             </motion.p>
-            <motion.p {...fadeUp} className="text-xl text-muted-foreground italic leading-relaxed text-center">
-              Our long-term vision includes expanding into more cities, empowering more venue owners, and continuously upgrading our event coordination platform to meet evolving expectations. As the event industry grows, so will we — responsibly, sustainably, and with integrity.
+            <motion.p
+              {...fadeUp}
+              className="text-xl text-muted-foreground italic leading-relaxed text-center"
+            >
+              Our long-term vision includes expanding into more cities,
+              empowering more venue owners, and continuously upgrading our event
+              coordination platform to meet evolving expectations. As the event
+              industry grows, so will we — responsibly, sustainably, and with
+              integrity.
             </motion.p>
           </div>
         </SectionWrapper>
 
-        <SectionWrapper variant="white" className="py-24 md:py-32 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]">
+        <SectionWrapper
+          variant="white"
+          className="py-24 md:py-32 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+          withDecorations
+        >
           <OrnateTitle title="Why We Exist" accent="Purpose" />
-          <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <motion.p {...fadeUp} className="text-2xl text-wine font-heading italic leading-relaxed">
-              Because celebrations define life. They mark beginnings, achievements, partnerships, growth, and love.
-            </motion.p>
-            <SimpleChecklist
-              columns={1}
-              items={[
-                "Because businesses need inspiring spaces for corporate meetings and networking events.",
-                "Because families deserve joyful and well-organized social event spaces.",
-                "Because professionals in the hospitality industry deserve visibility and opportunity.",
-              ]}
-            />
-            <motion.p {...fadeUp} className="text-xl text-muted-foreground italic">
-              We exist to bring all of them together — under one trusted digital roof.
-            </motion.p>
+          <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-20 relative">
+            <div className="text-center max-w-4xl mx-auto space-y-8">
+              <motion.p
+                {...fadeUp}
+                className="text-3xl md:text-5xl text-wine font-heading leading-tight"
+              >
+                "Because celebrations define life. They mark beginnings,
+                achievements, partnerships, growth, and love."
+              </motion.p>
+              <div className="h-1.5 w-24 bg-champagne/30 mx-auto rounded-full" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Building2,
+                  text: "Businesses need inspiring spaces for corporate meetings, high-stakes networking, and global vision-sharing.",
+                  bg: "bg-ivory/40",
+                },
+                {
+                  icon: Heart,
+                  text: "Families deserve joyful, well-organized social event spaces where the only focus is on celebrating love and milestones.",
+                  bg: "bg-wine/5",
+                },
+                {
+                  icon: Award,
+                  text: "Professionals in the hospitality industry deserve the visibility and opportunities that reflect their excellence and passion.",
+                  bg: "bg-ivory/40",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  {...fadeUp}
+                  {...stagger(i)}
+                  className="group"
+                >
+                  <Tilt className="h-full">
+                    <div
+                      className={cn(
+                        "p-6 md:p-12 rounded-[3.5rem] border border-champagne/10 h-full flex flex-col items-center text-center md:items-start md:text-left hover:bg-white hover:border-wine/20 transition-all duration-500 shadow-soft hover:shadow-luxury relative overflow-hidden",
+                        item.bg,
+                      )}
+                    >
+                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-wine/5 rounded-full blur-2xl group-hover:bg-wine/10 transition-all duration-700" />
+                      <div className="h-20 w-20 rounded-3xl bg-white text-wine flex items-center justify-center mb-10 group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 relative z-10">
+                        <item.icon size={40} />
+                      </div>
+                      <p className="text-lg md:text-xl text-muted-foreground italic leading-relaxed relative z-10">
+                        {item.text}
+                      </p>
+                    </div>
+                  </Tilt>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div {...fadeUp} className="text-center pt-8 px-2 md:px-4">
+              <div className="flex md:inline-flex items-center justify-center gap-4 px-4 md:px-8 py-5 rounded-[2rem] md:rounded-full bg-ivory/80 border border-champagne/20 text-lg md:text-2xl text-muted-foreground font-heading shadow-inner w-full md:w-auto">
+                <Sparkles size={24} className="text-champagne shrink-0" />
+                <span>
+                  We exist to bring all of them together — under one trusted
+                  digital roof.
+                </span>
+              </div>
+            </motion.div>
           </div>
 
-          <motion.div {...fadeUp} className="mt-24">
-            <OrnateTitle title="A Community, Not Just a Platform" accent="Growing Together" />
+          <motion.div {...fadeUp} className="mt-20 md:mt-32 mb-16 md:mb-24">
+            <OrnateTitle
+              title="A Community, Not Just a Platform"
+              accent="Growing Together"
+            />
             <Tilt>
-              <div className="max-w-4xl mx-auto p-12 md:p-16 rounded-[3rem] bg-ivory/70 border border-champagne/20 shadow-xl">
+              <div className="max-w-4xl mx-auto pt-12 pb-14 px-6 md:p-16 rounded-[3rem] bg-ivory/70 border border-champagne/20 shadow-xl">
                 <p className="text-xl text-muted-foreground italic mb-8 leading-relaxed text-center">
-                  VenueForEvent.com is more than an online venue directory. It is a growing community of: Event professionals, Hospitality leaders, Creative planners, Passionate venue owners, Ambitious entrepreneurs, Families celebrating milestones.
+                  VenueForEvent.com is more than an online venue directory. It
+                  is a growing community of: Event professionals, Hospitality
+                  leaders, Creative planners, Passionate venue owners, Ambitious
+                  entrepreneurs, Families celebrating milestones.
                 </p>
                 <p className="text-xl text-wine font-heading italic text-center leading-relaxed">
-                  Each listing is a story. Each inquiry is a possibility. Each confirmed booking is a memory in the making.
+                  Each listing is a story. Each inquiry is a possibility. Each
+                  confirmed booking is a memory in the making.
                 </p>
               </div>
             </Tilt>
@@ -441,35 +741,52 @@ export default function BrandStoryPage() {
           <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div {...fadeUp} {...stagger(0)} className="group">
               <Tilt>
-                <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="pt-12 pb-14 px-6 md:p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col items-start text-left">
                   <div className="mb-8 h-16 w-16 rounded-2xl bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
                     <Award className="h-8 w-8" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold mb-4 text-foreground">Our Promise</h3>
-                  <p className="text-sm text-muted-foreground mb-4 italic">We promise to:</p>
-                  <SimpleChecklist
-                    columns={1}
-                    items={[
-                      "Uphold professionalism",
-                      "Support transparency",
-                      "Encourage responsible partnerships",
-                      "Strengthen the event industry India ecosystem",
-                      "Deliver reliable event booking services",
-                    ]}
-                  />
-                  <p className="mt-6 text-sm text-muted-foreground italic">We promise to remain committed to quality, innovation, and integrity.</p>
+                  <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
+                    Our Promise
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 italic">
+                    We promise to:
+                  </p>
+                  <div className="w-full">
+                    <SimpleChecklist
+                      columns={1}
+                      items={[
+                        "Uphold professionalism",
+                        "Support transparency",
+                        "Encourage responsible partnerships",
+                        "Strengthen the event industry India ecosystem",
+                        "Deliver reliable event booking services",
+                      ]}
+                    />
+                  </div>
+                  <p className="mt-6 text-sm text-muted-foreground italic">
+                    We promise to remain committed to quality, innovation, and
+                    integrity.
+                  </p>
                 </div>
               </Tilt>
             </motion.div>
             <motion.div {...fadeUp} {...stagger(1)} className="group">
               <Tilt>
-                <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="pt-12 pb-14 px-6 md:p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col items-start text-left">
                   <div className="mb-8 h-16 w-16 rounded-2xl bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
                     <History className="h-8 w-8" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold mb-4 text-foreground">The Journey Ahead</h3>
+                  <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
+                    The Journey Ahead
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed italic">
-                    Our journey has only begun. As we continue expanding our hospitality marketplace and enhancing our digital infrastructure, our commitment remains clear: To make venue discovery smarter. To make event planning simpler. To make partnerships stronger. Because behind every successful event is the right space — and behind every right space should be the right platform.
+                    Our journey has only begun. As we continue expanding our
+                    hospitality marketplace and enhancing our digital
+                    infrastructure, our commitment remains clear: To make venue
+                    discovery smarter. To make event planning simpler. To make
+                    partnerships stronger. Because behind every successful event
+                    is the right space — and behind every right space should be
+                    the right platform.
                   </p>
                 </div>
               </Tilt>
@@ -480,25 +797,45 @@ export default function BrandStoryPage() {
         {/* Final – Where Every Celebration Begins */}
         <SectionWrapper
           variant="dark"
-          className="py-28 md:py-36 -mt-1 rounded-t-[3rem] md:rounded-t-[4rem]"
+          className="py-28 md:py-36 -mt-10 md:-mt-16 relative z-20 rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-10px_40px_rgba(0,0,0,0.2)]"
           withDecorations
           id="final-branding"
         >
-          <SideFloral side="left" variant="light" className="top-8 opacity-50" />
-          <SideFloral side="right" variant="light" className="top-8 opacity-50" />
-          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12">
-            <OrnateTitle title="Where Every Celebration Begins" accent="Heart of the Marketplace" />
-            <motion.p {...fadeUp} className="text-2xl md:text-3xl text-white/90 italic leading-relaxed">
-              VenueForEvent.com was built on belief. It grows on trust. It thrives on relationships. And it exists for one reason:
+          <SideFloral
+            side="left"
+            variant="light"
+            className="top-8 opacity-50"
+          />
+          <SideFloral
+            side="right"
+            variant="light"
+            className="top-8 opacity-50"
+          />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 text-center space-y-12">
+            <OrnateTitle
+              title="Where Every Celebration Begins"
+              accent="Heart of the Marketplace"
+              variant="dark"
+            />
+            <motion.p
+              {...fadeUp}
+              className="text-lg md:text-3xl text-white/90 italic leading-relaxed"
+            >
+              VenueForEvent.com was built on belief. It grows on trust. It
+              thrives on relationships. And it exists for one reason:
             </motion.p>
-            <motion.p {...fadeUp} className="text-2xl md:text-3xl font-heading text-champagne leading-relaxed">
-              To ensure that when you imagine your perfect event — finding the perfect venue is the easiest part.
+            <motion.p
+              {...fadeUp}
+              className="text-lg md:text-3xl font-heading text-champagne leading-relaxed"
+            >
+              To ensure that when you imagine your perfect event — finding the
+              perfect venue is the easiest part.
             </motion.p>
             <div className="pt-12 border-t border-white/10">
-              <h4 className="font-heading text-4xl md:text-5xl font-heavy text-white uppercase tracking-[0.2em] mb-4">
+              <h4 className="font-heading text-xl md:text-5xl font-heavy text-white uppercase tracking-widest md:tracking-[0.2em] mb-4">
                 VenueForEvent.com
               </h4>
-              <p className="font-heading text-xl md:text-2xl text-champagne italic">
+              <p className="font-heading text-base md:text-2xl text-champagne italic">
                 Connecting Dreams with Spaces. Creating Moments that Matter.
               </p>
             </div>

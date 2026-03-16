@@ -42,7 +42,7 @@ export default function InfoPageLayout({
       {/* Hero Header */}
       <section
         ref={heroRef}
-        className="relative h-[85vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center"
+        className="relative h-[85vh] min-h-[700px] md:min-h-[600px] w-full overflow-hidden flex items-center justify-center"
       >
         {heroImage ? (
           <div className="absolute inset-0 z-0">
@@ -82,7 +82,7 @@ export default function InfoPageLayout({
 
         <motion.div
           style={{ y: heroTextY, opacity }}
-          className="relative z-10 text-center section-px max-w-6xl mx-auto"
+          className="relative z-10 text-center section-px max-w-6xl mx-auto pt-28 md:pt-0"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -110,7 +110,7 @@ export default function InfoPageLayout({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-accent text-3xl md:text-5xl text-champagne-gold mb-8 drop-shadow-luxury"
+            className="font-accent text-2xl md:text-5xl text-champagne-gold mb-8 drop-shadow-luxury"
           >
             {heroSubtitle || "VenueForEvent"}
           </motion.p>
@@ -118,7 +118,7 @@ export default function InfoPageLayout({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-heading text-6xl md:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase"
+            className="font-heading text-5xl md:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase"
           >
             {heroTitle}
           </motion.h1>
@@ -127,7 +127,7 @@ export default function InfoPageLayout({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-12 text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed italic"
+              className="mt-8 md:mt-12 text-lg md:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed italic px-4"
             >
               "{heroDescription}"
             </motion.p>
@@ -137,7 +137,7 @@ export default function InfoPageLayout({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
-            className="mt-16 flex flex-col items-center gap-4"
+            className="mt-8 md:mt-16 flex flex-col items-center gap-4"
           >
             <span className="text-[10px] uppercase tracking-[0.4em] text-champagne/60 font-bold">
               Scroll to Explore
@@ -146,7 +146,7 @@ export default function InfoPageLayout({
           </motion.div>
         </motion.div>
 
-        <HeroCurveDivider variant="ivory" />
+        {!hideWave && <HeroCurveDivider variant="ivory" />}
       </section>
 
       <main className="relative z-10 w-full">{children}</main>
