@@ -8,6 +8,7 @@ import HangingGarland from "@/components/pages-components/home/HangingGarland";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { HeroCurveDivider } from "./InfoComponents";
+import { cn } from "@/lib/utils";
 
 interface InfoPageLayoutProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ interface InfoPageLayoutProps {
   heroImage?: string;
   heroDescription?: string;
   hideWave?: boolean;
+  heroTitleClassName?: string;
 }
 
 export default function InfoPageLayout({
@@ -25,6 +27,7 @@ export default function InfoPageLayout({
   heroImage,
   heroDescription,
   hideWave = false,
+  heroTitleClassName,
 }: InfoPageLayoutProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScrollY } = useScroll({
@@ -118,7 +121,10 @@ export default function InfoPageLayout({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl min-[1400px]:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase"
+            className={cn(
+              "font-heading text-4xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl min-[1400px]:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase",
+              heroTitleClassName
+            )}
           >
             {heroTitle}
           </motion.h1>

@@ -544,10 +544,16 @@ export const SimpleChecklist = ({
 
 export const StepGrid = ({
   steps,
+  className,
+  itemClassName,
 }: {
   steps: { title: string; desc: string; icon: LucideIcon }[];
+  className?: string;
+  itemClassName?: string;
 }) => (
-  <div className="flex flex-wrap justify-center gap-8 items-stretch">
+  <div
+    className={cn("flex flex-wrap justify-center gap-8 items-stretch", className)}
+  >
     {steps.map((step, i) => (
       <motion.div
         key={i}
@@ -556,7 +562,7 @@ export const StepGrid = ({
         viewport={{ once: true }}
         transition={{ delay: i * 0.1 }}
         whileHover={{ y: -8 }}
-        className="relative w-full sm:w-[320px] flex"
+        className={cn("relative w-full sm:w-[320px] flex", itemClassName)}
       >
         <Tilt className="h-full w-full">
           <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-sm hover:shadow-2xl transition-all duration-500 group overflow-hidden">
