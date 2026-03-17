@@ -118,7 +118,7 @@ export default function InfoPageLayout({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-heading text-5xl md:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase"
+            className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl min-[1400px]:text-9xl font-heavy text-white drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)] leading-[1.05] tracking-tight uppercase"
           >
             {heroTitle}
           </motion.h1>

@@ -400,7 +400,7 @@ export const AlternatingGrid = ({
         >
           <div className="lg:w-1/2 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
             {item.icon && (
-              <div className="h-14 w-14 rounded-2xl bg-wine/5 text-wine flex items-center justify-center mb-6">
+              <div className="h-14 w-14 rounded-full bg-wine/5 text-wine flex items-center justify-center mb-6">
                 <item.icon className="h-7 w-7" />
               </div>
             )}
@@ -461,7 +461,7 @@ export const OrnateTitle = ({
       )}
       <h2
         className={cn(
-          "font-heading text-3xl md:text-6xl font-heavy tracking-tight mb-8",
+          "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-heavy tracking-tight mb-8",
           isDark
             ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]"
             : "text-foreground",
@@ -564,7 +564,7 @@ export const StepGrid = ({
               {i + 1}
             </div>
             <div className="relative z-10 flex flex-col items-center text-center text-foreground h-full">
-              <div className="h-20 w-20 rounded-3xl bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
+              <div className="h-20 w-20 rounded-full bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
                 <step.icon className="h-10 w-10" />
               </div>
               <h4 className="font-heading text-2xl font-bold mb-4">
@@ -643,7 +643,7 @@ export const HighlightCard = ({ icon: Icon, title, content }: any) => (
   >
     <Tilt className="h-full">
       <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col items-center text-center">
-        <div className="mb-8 h-16 w-16 rounded-2xl bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
+        <div className="mb-8 h-16 w-16 rounded-full bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
           <Icon className="h-8 w-8" />
         </div>
         <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
