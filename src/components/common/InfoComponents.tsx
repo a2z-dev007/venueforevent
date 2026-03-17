@@ -405,7 +405,7 @@ export const AlternatingGrid = ({
               </div>
             )}
             {item.title && (
-              <h3 className="font-heading text-2xl md:text-3xl font-bold">
+              <h3 className="font-heading text-lg md:text-xl lg:text-[22px] xl:text-3xl font-bold leading-tight">
                 {item.title}
               </h3>
             )}
@@ -461,7 +461,7 @@ export const OrnateTitle = ({
       )}
       <h2
         className={cn(
-          "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-heavy tracking-tight mb-8",
+          "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-heavy tracking-tight mb-8 px-4",
           isDark
             ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]"
             : "text-foreground",
@@ -562,7 +562,7 @@ export const StepGrid = ({
         viewport={{ once: true }}
         transition={{ delay: i * 0.1 }}
         whileHover={{ y: -8 }}
-        className={cn("relative w-full sm:w-[320px] flex", itemClassName)}
+        className={cn("relative w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] xl:w-[280px] flex", itemClassName)}
       >
         <Tilt className="h-full w-full">
           <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-sm hover:shadow-2xl transition-all duration-500 group overflow-hidden">
@@ -570,12 +570,19 @@ export const StepGrid = ({
               {i + 1}
             </div>
             <div className="relative z-10 flex flex-col items-center text-center text-foreground h-full">
-              <div className="h-20 w-20 rounded-full bg-white text-wine flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
+              <div className="h-20 w-20 rounded-full bg-white text-wine flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
                 <step.icon className="h-10 w-10" />
               </div>
-              <h4 className="font-heading text-2xl font-bold mb-4">
-                {step.title}
-              </h4>
+              
+              <div className="flex flex-col items-center mb-4">
+                <span className="text-wine/60 font-heading text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
+                  Step {i + 1}
+                </span>
+                <h4 className="font-heading text-2xl font-bold text-foreground group-hover:text-wine transition-colors duration-300 px-2">
+                  {step.title}
+                </h4>
+              </div>
+              
               <p className="text-sm leading-relaxed italic opacity-70 group-hover:opacity-100 transition-opacity">
                 {step.desc}
               </p>

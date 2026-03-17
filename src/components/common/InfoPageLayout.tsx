@@ -18,6 +18,7 @@ interface InfoPageLayoutProps {
   heroDescription?: string;
   hideWave?: boolean;
   heroTitleClassName?: string;
+  heroContentClassName?: string;
 }
 
 export default function InfoPageLayout({
@@ -28,6 +29,7 @@ export default function InfoPageLayout({
   heroDescription,
   hideWave = false,
   heroTitleClassName,
+  heroContentClassName,
 }: InfoPageLayoutProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScrollY } = useScroll({
@@ -85,7 +87,10 @@ export default function InfoPageLayout({
 
         <motion.div
           style={{ y: heroTextY, opacity }}
-          className="relative z-10 text-center section-px max-w-6xl mx-auto pt-32 md:pt-48 pb-20 md:pb-32"
+          className={cn(
+            "relative z-10 text-center section-px max-w-7xl mx-auto",
+            heroContentClassName
+          )}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
