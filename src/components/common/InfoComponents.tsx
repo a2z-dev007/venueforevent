@@ -350,7 +350,7 @@ export const ContentBlock = ({
           className={cn(
             "font-heading text-2xl md:text-4xl font-bold mb-4 leading-tight",
             isDark ? "text-white" : "text-foreground",
-            titleClassName
+            titleClassName,
           )}
         >
           {title}
@@ -552,7 +552,10 @@ export const StepGrid = ({
   itemClassName?: string;
 }) => (
   <div
-    className={cn("flex flex-wrap justify-center gap-8 items-stretch", className)}
+    className={cn(
+      "flex flex-wrap justify-center gap-8 items-stretch",
+      className,
+    )}
   >
     {steps.map((step, i) => (
       <motion.div
@@ -562,7 +565,10 @@ export const StepGrid = ({
         viewport={{ once: true }}
         transition={{ delay: i * 0.1 }}
         whileHover={{ y: -8 }}
-        className={cn("relative w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] xl:w-[280px] flex", itemClassName)}
+        className={cn(
+          "relative w-full sm:w-[calc(50%-1rem)] xl:w-[calc(25%-1.5rem)] min-w-[300px] flex",
+          itemClassName,
+        )}
       >
         <Tilt className="h-full w-full">
           <div className="relative p-10 rounded-[3rem] bg-white border border-champagne/10 h-full shadow-sm hover:shadow-2xl transition-all duration-500 group overflow-hidden">
@@ -573,16 +579,16 @@ export const StepGrid = ({
               <div className="h-20 w-20 rounded-full bg-white text-wine flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-[var(--shadow-soft)] border border-champagne/10 shrink-0">
                 <step.icon className="h-10 w-10" />
               </div>
-              
+
               <div className="flex flex-col items-center mb-4">
                 <span className="text-wine/60 font-heading text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
                   Step {i + 1}
                 </span>
-                <h4 className="font-heading text-2xl font-bold text-foreground group-hover:text-wine transition-colors duration-300 px-2">
+                <h4 className="font-heading text-lg sm:text-xl lg:text-lg font-bold text-foreground group-hover:text-wine transition-colors duration-300 px-2 leading-tight">
                   {step.title}
                 </h4>
               </div>
-              
+
               <p className="text-sm leading-relaxed italic opacity-70 group-hover:opacity-100 transition-opacity">
                 {step.desc}
               </p>
@@ -655,11 +661,11 @@ export const HighlightCard = ({ icon: Icon, title, content }: any) => (
     className="relative rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 group h-full"
   >
     <Tilt className="h-full">
-      <div className="p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col items-center text-center">
+      <div className="px-6 py-8 sm:p-10 rounded-[3rem] bg-white border border-champagne/10 h-full flex flex-col items-center text-center">
         <div className="mb-8 h-16 w-16 rounded-full bg-ivory text-wine flex items-center justify-center group-hover:bg-wine group-hover:text-white transition-all duration-500 shadow-inner">
           <Icon className="h-8 w-8" />
         </div>
-        <h3 className="font-heading text-xl font-bold mb-4 text-foreground">
+        <h3 className="font-heading text-lg lg:text-sm xl:text-xl font-bold mb-4 text-foreground whitespace-nowrap">
           {title}
         </h3>
         <div className="text-sm text-foreground/80 leading-relaxed italic">
